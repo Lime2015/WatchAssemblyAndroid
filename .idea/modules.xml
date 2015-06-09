@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/WatchAssemblyAndroid.iml" filepath="$PROJECT_DIR$/WatchAssemblyAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kakao-loginbase/kakao-loginbase.iml" filepath="$PROJECT_DIR$/kakao-loginbase/kakao-loginbase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kakao-usermgmt/kakao-usermgmt.iml" filepath="$PROJECT_DIR$/kakao-usermgmt/kakao-usermgmt.iml" />
+    </modules>
+  </component>
+</project>

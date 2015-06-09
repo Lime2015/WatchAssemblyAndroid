@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\src\main\res"><file name="template_icon" path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\src\main\res\drawable\template_icon.png" qualifiers="" type="drawable"/><file name="kakao_login" path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\src\main\res\layout\kakao_login.xml" qualifiers="" type="layout"/><file name="kakao_profile_layout" path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\src\main\res\layout\kakao_profile_layout.xml" qualifiers="" type="layout"/><file path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\src\main\res\values\kakao_strings.xml" qualifiers=""><string name="kakao_app_key">39f58e7f2959ab84fd8100248fea748f</string></file><file path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">LoginBaseTemplate</string></file><file path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\src\main\res\values\template_colors.xml" qualifiers=""><color name="com_kakao_profile_text">#FFD0CD</color></file><file path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\src\main\res\values\template_styles.xml" qualifiers=""><style name="com_kakao_profile_property_value" parent="@android:style/Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:layout_marginLeft">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:layout_marginRight">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:textSize">@dimen/com_kakao_profile_property_text</item>
+        <item name="android:paddingLeft">@dimen/com_kakao_padding</item>
+        <item name="android:inputType">text</item>
+    </style><style name="com_kakao_profile_property_label" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:layout_marginLeft">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:layout_marginRight">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:textSize">@dimen/com_kakao_profile_property_text</item>
+        <item name="android:textColor">@color/com_kakao_profile_text</item>
+        <item name="android:textStyle">bold</item>
+    </style></file><file path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\src\main\res\values-ko\strings.xml" qualifiers="ko"><string name="app_name">LoginBaseTemplate</string></file></source><source path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\build\generated\res\rs\release"/><source path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\build\generated\res\generated\release"/></dataSet><dataSet config="release"><source path="C:\Lime\dev\WatchAssemblyAndroid\kakao-loginbase\src\release\res"/></dataSet><mergedItems/></merger>

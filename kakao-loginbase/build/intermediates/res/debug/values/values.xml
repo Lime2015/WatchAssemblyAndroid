@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.kakao.sdk/util/1.0.52/res/values/kakao_strings.xml -->
+    <eat-comment/>
+    <string-array name="com_kakao_accounts_array">
+        <item>@string/com_kakao_kakaotalk_account</item>
+        <item>@string/com_kakao_other_kakaoaccount</item>
+        <item>@string/com_kakao_account_cancel</item>
+    </string-array>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.kakao.sdk/util/1.0.52/res/values/kakao_colors.xml -->
+    <eat-comment/>
+    <color name="com_kakao_account_button_background">#ffffff</color>
+    <color name="com_kakao_brown">#472a2b</color>
+    <color name="com_kakao_button_background_press">#ffeb00</color>
+    <color name="com_kakao_button_text_press">#000000</color>
+    <color name="com_kakao_cancel_button_background">#e5e5e5</color>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/src/main/res/values/template_colors.xml -->
+    <eat-comment/>
+    <color name="com_kakao_profile_text">#FFD0CD</color>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.kakao.sdk/util/1.0.52/res/values/kakao_dimens.xml -->
+    <eat-comment/>
+    <dimen name="com_kakao_padding">10dp</dimen>
+    <dimen name="com_kakao_profile_property_margin">10dp</dimen>
+    <dimen name="com_kakao_profile_property_text">15sp</dimen>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">LoginBaseTemplate</string>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.kakao.sdk/util/1.0.52/res/values/kakao_strings.xml -->
+    <eat-comment/>
+    <string name="com_kakao_account_cancel">Cancel</string>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.kakao.sdk/util/1.0.52/res/values/kakaolink_strings.xml -->
+    <eat-comment/>
+    <string name="com_kakao_alert_appKey">need to declare com.kakao.sdk.AppKey in your AndroidManifest.xml</string>
+    <string name="com_kakao_alert_install_kakaotalk">There is no installed KakaoTalk version higher than 4.2.0</string>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.kakao.sdk/util/1.0.52/res/values/kakao_strings.xml -->
+    <eat-comment/>
+    <string name="com_kakao_cancel_button">Cancel</string>
+    <string name="com_kakao_confirm_logout">Are you sure to log out from this app?</string>
+    <string name="com_kakao_confirm_unlink">Are you sure to unlink from this app?</string>
+    <string name="com_kakao_kakaostory_account">with KakaoStory</string>
+    <string name="com_kakao_kakaotalk_account">with KakaoTalk</string>
+    <string name="com_kakao_login_button">Log in with KakaoAccount</string>
+    <string name="com_kakao_logout_button">Log out</string>
+    <string name="com_kakao_ok_button">OK</string>
+    <string name="com_kakao_other_kakaoaccount">with another KakaoAccount</string>
+    <string name="com_kakao_profile_nickname">Nickname</string>
+    <string name="com_kakao_profile_userId">Kakao User ID</string>
+    <string name="com_kakao_unlink_button">Unlink</string>
+    <string name="core_com_kakao_sdk_loading">Loading…</string>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/src/main/res/values/kakao_strings.xml -->
+    <eat-comment/>
+    <string name="kakao_app_key">39f58e7f2959ab84fd8100248fea748f</string>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/src/main/res/values/template_styles.xml -->
+    <eat-comment/>
+    <style name="com_kakao_profile_property_label" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:layout_marginLeft">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:layout_marginRight">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:textSize">@dimen/com_kakao_profile_property_text</item>
+        <item name="android:textColor">@color/com_kakao_profile_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="com_kakao_profile_property_value" parent="@android:style/Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:layout_marginLeft">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:layout_marginRight">@dimen/com_kakao_profile_property_margin</item>
+        <item name="android:textSize">@dimen/com_kakao_profile_property_text</item>
+        <item name="android:paddingLeft">@dimen/com_kakao_padding</item>
+        <item name="android:inputType">text</item>
+    </style>
+</resources>

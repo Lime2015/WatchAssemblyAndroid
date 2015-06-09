@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.1.0'
+    }
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/' }
+    }
+
+//    configurations {
+//        all*.exclude group: 'com.android.support', module: 'support-v4'
+//    }
+}
+
+// for publishing
+task clean << {
+    delete project.DIST_DIR
+}
+
+task copyTask(type: Copy) {
+    from  '.'
+    into project.DIST_EXPLODED_DIR
+    exclude project.DIST_DIR
+    exclude relativePath(project.buildDir)
+    exclude '.gradle'
+    exclude '.idea'
+    exclude '**/*.iml'
+    exclude '**/.DS_Store'
+    exclude 'local.properties'
+}
+
+task zipTask(type: Zip, dependsOn : copyTask) {
+    from project.DIST_EXPLODED_DIR
+    destinationDir=file(project.DIST_DIR)
+    baseName=project.DIST_ZIP_NAME
+    version=project.KAKAO_SDK_VERSION
+}
