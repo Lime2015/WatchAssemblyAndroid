@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
 
     private Button btnKakao;
     private Button btnPreView;
+    private Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +26,24 @@ public class MainActivity extends Activity {
         btnKakao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tryKakaoLogin();
+                kakaoUser("login");
             }
         });
         btnPreView = (Button) findViewById(R.id.btnPreView);
+        btnLogout = (Button) findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                kakaoUser("logout");
+            }
+        });
     }
 
 
-    private void tryKakaoLogin(){
+    private void kakaoUser(String msg){
         Intent intent = new Intent(this, KakaoActivity.class);
+        intent.putExtra("MSG", msg);
         startActivity(intent);
-        finish();
+        //finish();
     }
 }
