@@ -5,13 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.kakao.UserProfile;
-import com.kakao.helper.Logger;
 import com.lime.watchassembly.kakao.KakaoActivity;
-
-import vo.Member;
 
 
 public class MainActivity extends Activity {

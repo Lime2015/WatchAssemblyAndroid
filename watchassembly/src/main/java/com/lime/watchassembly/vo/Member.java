@@ -1,4 +1,4 @@
-package vo;
+package com.lime.watchassembly.vo;
 
 /**
  * Created by Administrator on 2015-06-09.
