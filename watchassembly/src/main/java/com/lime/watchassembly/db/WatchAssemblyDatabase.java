@@ -132,7 +132,10 @@ public class WatchAssemblyDatabase {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-
+            String query;
+            query = "CREATE TABLE member_info ( member_id VARCHAR(45) PRIMARY KEY, logon_type_id INTEGER PRIMARY KEY, member_nickname VARCHAR(45), address VARCHAR(100), birth_date DATE, gender CHAR(1))";
+            database.execSQL(query);
+            Logger.getInstance().d("onCreated database [" + DATABASE_NAME + "].");
         }
 
         @Override
@@ -143,7 +146,11 @@ public class WatchAssemblyDatabase {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+            String query;
+            query = "DROP TABLE IF EXISTS users";
+            db.execSQL(query);
+            onCreate(db);
+            Logger.getInstance().d("onUpgraded database [" + DATABASE_NAME + "].");
         }
     }
 }

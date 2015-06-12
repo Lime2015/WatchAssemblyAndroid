@@ -1,25 +1,69 @@
 package com.lime.watchassembly.vo;
 
+import java.util.Date;
+
 /**
  * Created by Administrator on 2015-06-09.
  */
 public class Member {
-    private String id;
-    private String nickname;
+    private String memberId;
+    private int logonTypeId;
+    private String memberNickname;
+    private String address;
+    private Date birthDate;
+    private char gender;
 
-    public String getId() {
-        return id;
+    public Member(String memberId, int logonTypeId, String memberNickname) {
+        this.memberId = memberId;
+        this.logonTypeId = logonTypeId;
+        this.memberNickname = memberNickname;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getMemberId() {
+        return memberId;
     }
 
-    public String getNickname() {
-        return nickname;
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public int getLogonTypeId() {
+        return logonTypeId;
+    }
+
+    public void setLogonTypeId(int logonTypeId) {
+        this.logonTypeId = logonTypeId;
+    }
+
+    public String getMemberNickname() {
+        return memberNickname;
+    }
+
+    public void setMemberNickname(String memberNickname) {
+        this.memberNickname = memberNickname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public char getGender() {
+        return gender;
+    }
+
+    public void setGender(char gender) {
+        this.gender = gender;
     }
 }

@@ -16,6 +16,7 @@ import com.lime.watchassembly.MainActivity;
 import com.lime.watchassembly.R;
 
 import com.lime.watchassembly.db.WatchAssemblyDatabase;
+import com.lime.watchassembly.util.WebServerController;
 import com.lime.watchassembly.vo.Member;
 
 /**
@@ -32,6 +33,7 @@ public class KakaoActivity extends Activity {
     private TextView txtNickname;
 
     private WatchAssemblyDatabase database;
+    private WebServerController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class KakaoActivity extends Activity {
     private void initializeView() {
         setContentView(R.layout.kakao_main);
 
+        kakaoMember = null;
         userProfile = UserProfile.loadFromCache();
 
         txtNickname = (TextView) findViewById(R.id.txtNickname);
@@ -75,19 +78,27 @@ public class KakaoActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (userProfile != null) {
+        if (kakaoMember == null && userProfile != null) {
             long id = userProfile.getId();
             String nickname = userProfile.getNickname();
 
             if (id > 0) {
                 Logger.getInstance().d(TAG + " 로그인정보:" + id + "/" + nickname);
 
-                kakaoMember = new Member();
-                kakaoMember.setId("" + id);
-                kakaoMember.setNickname(nickname);
-                txtNickname.setText(kakaoMember.getNickname());
+                kakaoMember = new Member("" + id, 1, nickname);
+                txtNickname.setText(kakaoMember.getMemberNickname());
+
+                // web server 회원인지 체크
+                checkMemberSignup();
             }
         }
+    }
+
+    /**
+     * check web server member
+     */
+    private void checkMemberSignup(){
+
     }
 
     private void redirectLoginActivity() {
