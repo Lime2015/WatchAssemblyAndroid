@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.util.Log;
 
 import com.kakao.APIErrorResult;
 import com.kakao.LogoutResponseCallback;
 import com.kakao.UserManagement;
 import com.kakao.UserProfile;
-import com.kakao.helper.Logger;
 import com.lime.watchassembly.MainActivity;
 import com.lime.watchassembly.R;
 
@@ -68,9 +68,9 @@ public class KakaoActivity extends Activity {
         database = WatchAssemblyDatabase.getInstance(this);
         boolean isOpen = database.open();
         if (isOpen) {
-            Logger.getInstance().d(TAG + " WatchAssembly database is open.");
+            Log.d(TAG, "WatchAssembly database is open.");
         } else {
-            Logger.getInstance().d(TAG + " WatchAssembly database is not open.");
+            Log.d(TAG, "WatchAssembly database is not open.");
         }
     }
 
@@ -83,7 +83,7 @@ public class KakaoActivity extends Activity {
             String nickname = userProfile.getNickname();
 
             if (id > 0) {
-                Logger.getInstance().d(TAG + " 로그인정보:" + id + "/" + nickname);
+                Log.d(TAG, "로그인정보:" + id + "/" + nickname);
 
                 kakaoMember = new Member("" + id, 1, nickname);
                 txtNickname.setText(kakaoMember.getMemberNickname());
@@ -119,7 +119,7 @@ public class KakaoActivity extends Activity {
         UserManagement.requestLogout(new LogoutResponseCallback() {
             @Override
             protected void onSuccess(long l) {
-                Logger.getInstance().d(TAG + " 로그아웃");
+                Log.d(TAG, "로그아웃");
 
                 kakaoMember = null;
                 txtNickname.setText("");

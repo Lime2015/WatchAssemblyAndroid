@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.util.Log;
 
 import com.kakao.UserProfile;
 import com.lime.watchassembly.kakao.KakaoActivity;

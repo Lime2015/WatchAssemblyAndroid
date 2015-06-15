@@ -2,6 +2,7 @@ package com.lime.watchassembly.kakao;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.lime.template.loginbase.SampleLoginActivity;
 import com.lime.watchassembly.R;

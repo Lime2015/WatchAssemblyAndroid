@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.util.Log;
 
 import com.kakao.APIErrorResult;
 import com.kakao.SignupResponseCallback;
 import com.kakao.UserManagement;
-import com.kakao.helper.Logger;
 import com.lime.template.loginbase.SampleSignupActivity;
 import com.lime.watchassembly.R;
 
@@ -18,6 +18,12 @@ import java.util.HashMap;
  * Created by Administrator on 2015-06-09.
  */
 public class KakaoSignupActivity extends SampleSignupActivity {
+
+    /**
+     * debug TAG
+     */
+    public static final String TAG = "KakaoSignupActivity";
+
     protected void redirectLoginActivity() {
         Intent intent = new Intent(this, KakaoLoginActivity.class);
         startActivity(intent);
@@ -58,7 +64,7 @@ public class KakaoSignupActivity extends SampleSignupActivity {
             @Override
             protected void onFailure(final APIErrorResult errorResult) {
                 String message = "failed to sign up. msg=" + errorResult;
-                Logger.getInstance().d(message);
+                Log.d(TAG, message);
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
             }
         }, properties);

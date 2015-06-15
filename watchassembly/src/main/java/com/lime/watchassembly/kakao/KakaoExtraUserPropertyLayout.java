@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
+import android.util.Log;
 
 import com.lime.watchassembly.R;
 
@@ -14,6 +15,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class KakaoExtraUserPropertyLayout extends FrameLayout {
+
+    /**
+     * debug TAG
+     */
+    public static final String TAG = "KakaoExtraUserPropertyLayout";
+
     // property key
     private  static final String NAME_KEY = "name";
     private  static final String AGE_KEY = "age";

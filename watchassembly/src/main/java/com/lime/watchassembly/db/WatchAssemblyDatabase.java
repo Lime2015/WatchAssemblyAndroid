@@ -4,8 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
-import com.kakao.helper.Logger;
 
 /**
  * Created by Administrator on 2015-06-11.
@@ -66,7 +66,7 @@ public class WatchAssemblyDatabase {
      * @return
      */
     public boolean open() {
-        Logger.getInstance().d("opening database [" + DATABASE_NAME + "].");
+        Log.d(TAG, "opening database [" + DATABASE_NAME + "].");
 
         dbHelper = new DatabaseHelper(context);
         db = dbHelper.getWritableDatabase();
@@ -78,7 +78,7 @@ public class WatchAssemblyDatabase {
      * close database
      */
     public void close() {
-        Logger.getInstance().d("closing database [" + DATABASE_NAME + "].");
+        Log.d(TAG, "closing database [" + DATABASE_NAME + "].");
 
         db.close();
         database = null;
@@ -92,14 +92,14 @@ public class WatchAssemblyDatabase {
      * @return
      */
     public Cursor rawQuery(String SQL) {
-        Logger.getInstance().d("nexecuteQuery called.");
+        Log.d(TAG, "nexecuteQuery called.");
 
         Cursor c1 = null;
         try {
             c1 = db.rawQuery(SQL, null);
-            Logger.getInstance().d("cursor count : " + c1.getCount());
+            Log.d(TAG, "cursor count : " + c1.getCount());
         } catch (Exception ex) {
-            Logger.getInstance().d(TAG + ": Exception in rawQuery" + ex);
+            Log.d(TAG, " : Exception in rawQuery" + ex);
         }
 
         return c1;
@@ -110,13 +110,13 @@ public class WatchAssemblyDatabase {
      * @return
      */
     public boolean execSQL(String SQL) {
-        Logger.getInstance().d("nexecuteQuery called.");
+        Log.d(TAG, "nexecuteQuery called.");
 
         try {
-            Logger.getInstance().d(TAG + " : SQL : " + SQL);
+            Log.d(TAG, " : SQL : " + SQL);
             db.execSQL(SQL);
         } catch (Exception ex) {
-            Logger.getInstance().d(TAG + " : Exception in execSQL " + ex);
+            Log.d(TAG, " : Exception in execSQL " + ex);
             return false;
         }
 
@@ -135,13 +135,13 @@ public class WatchAssemblyDatabase {
             String query;
             query = "CREATE TABLE member_info ( member_id VARCHAR(45) PRIMARY KEY, logon_type_id INTEGER PRIMARY KEY, member_nickname VARCHAR(45), address VARCHAR(100), birth_date DATE, gender CHAR(1))";
             database.execSQL(query);
-            Logger.getInstance().d("onCreated database [" + DATABASE_NAME + "].");
+            Log.d(TAG, "onCreated database [" + DATABASE_NAME + "].");
         }
 
         @Override
         public void onOpen(SQLiteDatabase db) {
             super.onOpen(db);
-            Logger.getInstance().d("opened database [" + DATABASE_NAME + "].");
+            Log.d(TAG, "opened database [" + DATABASE_NAME + "].");
         }
 
         @Override
@@ -150,7 +150,7 @@ public class WatchAssemblyDatabase {
             query = "DROP TABLE IF EXISTS users";
             db.execSQL(query);
             onCreate(db);
-            Logger.getInstance().d("onUpgraded database [" + DATABASE_NAME + "].");
+            Log.d(TAG, "onUpgraded database [" + DATABASE_NAME + "].");
         }
     }
 }
