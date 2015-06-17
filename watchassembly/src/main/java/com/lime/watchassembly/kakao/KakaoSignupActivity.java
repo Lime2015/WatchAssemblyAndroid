@@ -22,7 +22,7 @@ public class KakaoSignupActivity extends SampleSignupActivity {
     /**
      * debug TAG
      */
-    public static final String TAG = "KakaoSignupActivity";
+    private final String TAG = "KakaoSignupActivity";
 
     protected void redirectLoginActivity() {
         Intent intent = new Intent(this, KakaoLoginActivity.class);

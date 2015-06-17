@@ -5,18 +5,23 @@ import java.util.Date;
 /**
  * Created by Administrator on 2015-06-09.
  */
-public class Member {
+public class MemberInfo {
     private String memberId;
     private int logonTypeId;
     private String memberNickname;
     private String address;
     private Date birthDate;
-    private char gender;
+    private String gender;
 
-    public Member(String memberId, int logonTypeId, String memberNickname) {
+    public MemberInfo(){}
+
+    public MemberInfo(String memberId, int logonTypeId, String memberNickname) {
         this.memberId = memberId;
         this.logonTypeId = logonTypeId;
         this.memberNickname = memberNickname;
+        this.address = null;
+        this.birthDate = null;
+        this.gender = null;
     }
 
     public String getMemberId() {
@@ -59,11 +64,11 @@ public class Member {
         this.birthDate = birthDate;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 }

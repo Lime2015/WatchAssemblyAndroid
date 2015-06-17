@@ -1,6 +1,7 @@
 package com.lime.watchassembly.kakao;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,16 +18,16 @@ import com.lime.watchassembly.R;
 
 import com.lime.watchassembly.db.WatchAssemblyDatabase;
 import com.lime.watchassembly.util.WebServerController;
-import com.lime.watchassembly.vo.Member;
+import com.lime.watchassembly.vo.MemberInfo;
 
 /**
  * Created by Administrator on 2015-06-09.
  */
 public class KakaoActivity extends Activity {
 
-    public static final String TAG = "KakaoActivity";
+    private final String TAG = "KakaoActivity";
 
-    private Member kakaoMember;
+    private MemberInfo kakaoMemberInfo;
     private UserProfile userProfile;
 
     private Button btnLogout;
@@ -34,6 +35,9 @@ public class KakaoActivity extends Activity {
 
     private WatchAssemblyDatabase database;
     private WebServerController controller;
+
+    //Progress Dialog Object
+    ProgressDialog prgDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +50,9 @@ public class KakaoActivity extends Activity {
     private void initializeView() {
         setContentView(R.layout.kakao_main);
 
-        kakaoMember = null;
+        kakaoMemberInfo = null;
         userProfile = UserProfile.loadFromCache();
+        controller = new WebServerController();
 
         txtNickname = (TextView) findViewById(R.id.txtNickname);
         btnLogout = (Button) findViewById(R.id.btnLogout);
@@ -57,6 +62,10 @@ public class KakaoActivity extends Activity {
                 redirectLogoutActivity();
             }
         });
+
+        //Initialize Progress Dialog properties
+        prgDialog = new ProgressDialog(this);
+        prgDialog.setCancelable(false);
     }
 
     private void initializeDatabase() {
@@ -78,18 +87,18 @@ public class KakaoActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (kakaoMember == null && userProfile != null) {
+        if (kakaoMemberInfo == null && userProfile != null) {
             long id = userProfile.getId();
             String nickname = userProfile.getNickname();
 
             if (id > 0) {
                 Log.d(TAG, "로그인정보:" + id + "/" + nickname);
 
-                kakaoMember = new Member("" + id, 1, nickname);
-                txtNickname.setText(kakaoMember.getMemberNickname());
+                kakaoMemberInfo = new MemberInfo("" + id, 1, nickname);
+                txtNickname.setText(kakaoMemberInfo.getMemberNickname());
 
                 // web server 회원인지 체크
-                checkMemberSignup();
+                checkMemberInServer();
             }
         }
     }
@@ -97,12 +106,21 @@ public class KakaoActivity extends Activity {
     /**
      * check web server member
      */
-    private void checkMemberSignup(){
-
+    private void checkMemberInServer(){
+        boolean result;
+        prgDialog.setMessage("check member...");
+        prgDialog.show();
+        result = controller.checkMember(kakaoMemberInfo);
+        prgDialog.hide();
+        if(!result){
+            Intent intent = new Intent(this, KakaoExtraUserPropertyLayout.class);
+            startActivity(intent);
+        }
     }
 
     private void redirectLoginActivity() {
         if (userProfile == null || userProfile.getId() < 0) {
+            Log.d(TAG, "카카오 로그인 시도 시작");
             Intent intent = new Intent(this, KakaoLoginActivity.class);
             startActivity(intent);
             finish();
@@ -121,7 +139,7 @@ public class KakaoActivity extends Activity {
             protected void onSuccess(long l) {
                 Log.d(TAG, "로그아웃");
 
-                kakaoMember = null;
+                kakaoMemberInfo = null;
                 txtNickname.setText("");
                 redirectMainActivity();
             }

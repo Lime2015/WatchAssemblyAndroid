@@ -14,7 +14,7 @@ public class WatchAssemblyDatabase {
     /**
      * TAG for debugging
      */
-    public static final String TAG = "WatchAssemblyDatabase";
+    private final String TAG = "WatchAssemblyDatabase";
 
     /**
      * Singleton instance
@@ -134,6 +134,7 @@ public class WatchAssemblyDatabase {
         public void onCreate(SQLiteDatabase db) {
             String query;
             query = "CREATE TABLE member_info ( member_id VARCHAR(45) PRIMARY KEY, logon_type_id INTEGER PRIMARY KEY, member_nickname VARCHAR(45), address VARCHAR(100), birth_date DATE, gender CHAR(1))";
+
             database.execSQL(query);
             Log.d(TAG, "onCreated database [" + DATABASE_NAME + "].");
         }
@@ -147,7 +148,7 @@ public class WatchAssemblyDatabase {
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             String query;
-            query = "DROP TABLE IF EXISTS users";
+            query = "DROP TABLE IF EXISTS member_info";
             db.execSQL(query);
             onCreate(db);
             Log.d(TAG, "onUpgraded database [" + DATABASE_NAME + "].");

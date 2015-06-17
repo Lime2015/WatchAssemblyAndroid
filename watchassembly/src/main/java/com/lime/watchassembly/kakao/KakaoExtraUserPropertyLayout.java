@@ -19,7 +19,7 @@ public class KakaoExtraUserPropertyLayout extends FrameLayout {
     /**
      * debug TAG
      */
-    public static final String TAG = "KakaoExtraUserPropertyLayout";
+    private final String TAG = "KakaoExtraUserPropertyLayout";
 
     // property key
     private  static final String NAME_KEY = "name";
