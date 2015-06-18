@@ -4,13 +4,16 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
-import android.util.Log;
 
 import com.lime.watchassembly.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,12 +25,12 @@ public class KakaoExtraUserPropertyLayout extends FrameLayout {
     private final String TAG = "KakaoExtraUserPropertyLayout";
 
     // property key
-    private  static final String NAME_KEY = "name";
-    private  static final String AGE_KEY = "age";
+    private  static final String ADDRESS_KEY = "address";
+    private  static final String BIRTHDAY_KEY = "birthday";
     private  static final String GENDER_KEY = "gender";
 
-    private EditText name;
-    private EditText age;
+    private EditText address;
+    private EditText birthday;
     private Spinner gender;
 
     public KakaoExtraUserPropertyLayout(Context context) {
@@ -46,40 +49,59 @@ public class KakaoExtraUserPropertyLayout extends FrameLayout {
     protected void onAttachedToWindow () {
         super.onAttachedToWindow();
         final View view = inflate(getContext(), R.layout.kakao_extra_user_property, this);
-        name = (EditText) view.findViewById(R.id.name);
-        age = (EditText) view.findViewById(R.id.age);
+        address = (EditText) view.findViewById(R.id.address);
+        birthday = (EditText) view.findViewById(R.id.birthday);
         gender = (Spinner) view.findViewById(R.id.gender);
     }
 
-    HashMap<String, String> getProperties(){
-        final String nickNameValue = name.getText().toString();
-        final String ageValue = age.getText().toString();
-        final String genderValue = String.valueOf(gender.getSelectedItem());
+    public HashMap<String, String> getProperties(){
+        String strAddress = address.getText().toString();
+
+        String strBirthday = birthday.getText().toString();
+//        Date date = new Date(birthday.getYear(), birthday.getMonth(), birthday.getDayOfMonth());
+//        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        String strBirthday = transFormat.format(date);
+
+        String strGenger = String.valueOf(gender.getSelectedItem());
 
         HashMap<String, String> properties = new HashMap<String, String>();
-        if(nickNameValue != null)
-            properties.put(NAME_KEY, nickNameValue);
-        if(ageValue != null)
-            properties.put(AGE_KEY, ageValue);
-        if(genderValue != null)
-            properties.put(GENDER_KEY, genderValue);
+        if(strAddress != null)
+            properties.put(ADDRESS_KEY, strAddress);
+        if(strBirthday != null)
+            properties.put(BIRTHDAY_KEY, strBirthday);
+        if(strGenger != null)
+            properties.put(GENDER_KEY, strGenger);
 
         return properties;
     }
 
-    void showProperties(final Map<String, String> properties) {
-        final String nameValue = properties.get(NAME_KEY);
-        if (nameValue != null)
-            name.setText(nameValue);
+    public void showProperties(final Map<String, String> properties) {
+        final String strAddress = properties.get(ADDRESS_KEY);
+        if (strAddress != null)
+            address.setText(strAddress);
 
-        final String ageValue = properties.get(AGE_KEY);
-        if (ageValue != null)
-            age.setText(ageValue);
+        final String strBirthday = properties.get(BIRTHDAY_KEY);
+//        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        Date date = null;
+//        try {
+//            date = transFormat.parse(strBirthday);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
 
-        final String genderValue = properties.get(GENDER_KEY);
-        if (genderValue != null) {
+        if (strBirthday != null)
+            birthday.setText(strAddress);
+//            birthday.init(date.getYear(), date.getMonth(), date.getDay(), new DatePicker.OnDateChangedListener() {
+//                @Override
+//                public void onDateChanged(DatePicker datePicker, int i, int i1, int i2) {
+//
+//                }
+//            });
+
+        final String strGenger = properties.get(GENDER_KEY);
+        if (strGenger != null) {
             ArrayAdapter<String> myAdap = (ArrayAdapter<String>) gender.getAdapter(); //cast to an ArrayAdapter
-            int spinnerPosition = myAdap.getPosition(genderValue);
+            int spinnerPosition = myAdap.getPosition(strGenger);
             gender.setSelection(spinnerPosition);
         }
     }

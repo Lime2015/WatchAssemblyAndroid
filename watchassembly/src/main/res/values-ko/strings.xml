@@ -5,8 +5,8 @@
     <string name="me_button">내정보</string>
     <string name="update_profile_button">업데이트</string>
 
-    <string name="name">이름을 입력하세요.</string>
-    <string name="age">나이를 입력하세요.</string>
+    <string name="address">주소를 입력하세요.</string>
+    <string name="birthday">생일을 입력하세요.</string>
     <string name="gender">성별을 입력하세요.</string>
 
     <string-array name="gender_types">

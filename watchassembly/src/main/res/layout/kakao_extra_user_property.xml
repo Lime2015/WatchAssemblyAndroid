@@ -1,38 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
-        android:text="@string/name"
-        style="@style/com_kakao_profile_property_label" />
+        style="@style/com_kakao_profile_property_label"
+        android:text="@string/address" />
 
-    <EditText
-        android:id="@+id/name"
-        style="@style/com_kakao_profile_property_value" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/address"
+            style="@style/com_kakao_profile_property_value" />
+
+        <Button
+            android:id="@+id/btnViewAddressDlg"
+            android:text="+"
+            android:layout_toRightOf="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
 
     <TextView
-        android:text="@string/age"
-        style="@style/com_kakao_profile_property_label" />
+        style="@style/com_kakao_profile_property_label"
+        android:text="@string/birthday" />
 
-    <EditText
-        android:id="@+id/age"
-        style="@style/com_kakao_profile_property_value" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/birthday"
+            style="@style/com_kakao_profile_property_value" />
+
+        <Button
+            android:id="@+id/btnViewBirthDayDlg"
+            android:text="+"
+            android:layout_toRightOf="@+id/birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
 
     <TextView
-        android:text="@string/gender"
-        style="@style/com_kakao_profile_property_label" />
+        style="@style/com_kakao_profile_property_label"
+        android:text="@string/gender" />
 
     <Spinner
         android:id="@+id/gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/com_kakao_profile_property_margin"
         android:layout_marginLeft="@dimen/com_kakao_profile_property_margin"
         android:layout_marginRight="@dimen/com_kakao_profile_property_margin"
-        android:textSize="@dimen/com_kakao_profile_property_text"
-        android:textStyle="bold"
+        android:layout_marginTop="@dimen/com_kakao_profile_property_margin"
+        android:entries="@array/gender_types"
         android:paddingLeft="@dimen/com_kakao_padding"
-        android:entries="@array/gender_types" />
+        android:textSize="@dimen/com_kakao_profile_property_text"
+        android:textStyle="bold" />
+
+
 </LinearLayout>

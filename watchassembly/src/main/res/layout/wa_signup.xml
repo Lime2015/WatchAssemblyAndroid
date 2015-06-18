@@ -5,12 +5,12 @@
     android:layout_height="fill_parent">
 
     <com.lime.watchassembly.kakao.KakaoExtraUserPropertyLayout
-        android:id="@+id/extra_user_property"
+        android:id="@+id/wa_extra_user_property"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/buttonSignup"
+        android:id="@+id/btnWASignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/com_kakao_profile_property_margin"
