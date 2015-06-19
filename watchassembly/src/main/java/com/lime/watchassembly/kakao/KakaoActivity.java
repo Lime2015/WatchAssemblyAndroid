@@ -3,7 +3,6 @@ package com.lime.watchassembly.kakao;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,25 +28,6 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.protocol.HTTP;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Administrator on 2015-06-09.
  */
@@ -57,6 +37,8 @@ public class KakaoActivity extends Activity {
     private final String SERVER_URL = "http://192.168.50.184:9080";
     private final String SERVER_CHECK_MEMBER = "/WatchAssemblyWebServer/checkMember.do";
     private final String SERVER_SAVE_MEMBER = "/WatchAssemblyWebServer/saveMember.do";
+
+    private final int WA_SIGNUP_CODE = 1100;
 
     private MemberInfo kakaoMemberInfo;
     private UserProfile userProfile;
@@ -158,7 +140,11 @@ public class KakaoActivity extends Activity {
                 ServerResult serverResult = gson.fromJson(content, ServerResult.class);
 
                 if (serverResult.getResult() == 0) {
+                    // 신규회원
                     redirectWASignupActivity();
+                }else{
+                    // 기존회원
+                    showMyPage();
                 }
             }
 
@@ -171,10 +157,26 @@ public class KakaoActivity extends Activity {
         });
     }
 
-    private void redirectWASignupActivity(){
+    private void redirectWASignupActivity() {
         Intent intent = new Intent(this, WASignupActivity.class);
-        startActivity(intent);
-        finish();
+        intent.putExtra("kakaoMemberInfo", kakaoMemberInfo);
+        startActivityForResult(intent, WA_SIGNUP_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == WA_SIGNUP_CODE) {
+            if (resultCode == RESULT_OK) {
+                kakaoMemberInfo = (MemberInfo) data.getSerializableExtra("kakaoMemberInfo");
+                showMyPage();
+            }
+        }
+    }
+
+    private void showMyPage() {
+        Toast.makeText(getApplicationContext(), "Show MyPage !!", Toast.LENGTH_LONG).show();
     }
 
     private void redirectLoginActivity() {

@@ -1,11 +1,12 @@
 package com.lime.watchassembly.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Administrator on 2015-06-09.
  */
-public class MemberInfo {
+public class MemberInfo implements Serializable {
     private String memberId;
     private int logonTypeId;
     private String memberNickname;

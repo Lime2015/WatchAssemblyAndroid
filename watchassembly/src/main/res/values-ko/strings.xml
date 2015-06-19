@@ -10,8 +10,8 @@
     <string name="gender">성별을 입력하세요.</string>
 
     <string-array name="gender_types">
-        <item>여</item>
         <item>남</item>
+        <item>여</item>
     </string-array>
 
 </resources>

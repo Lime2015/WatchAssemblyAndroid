@@ -14,14 +14,18 @@
 
         <EditText
             android:id="@+id/address"
-            style="@style/com_kakao_profile_property_value" />
+            android:hint="ex)GuaCheonSi GyeongGiDo"
+            android:layout_toLeftOf="@+id/btnViewAddressDlg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
         <Button
             android:id="@+id/btnViewAddressDlg"
             android:text="+"
-            android:layout_toRightOf="@+id/address"
+            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 
@@ -35,14 +39,18 @@
 
         <EditText
             android:id="@+id/birthday"
-            style="@style/com_kakao_profile_property_value" />
+            android:hint="ex)19741201"
+            android:layout_toLeftOf="@+id/btnViewBirthDayDlg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
         <Button
             android:id="@+id/btnViewBirthDayDlg"
             android:text="+"
-            android:layout_toRightOf="@+id/birthday"
+            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 

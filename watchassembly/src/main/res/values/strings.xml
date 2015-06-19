@@ -10,8 +10,8 @@
     <string name="gender">Select Your Gender</string>
 
     <string-array name="gender_types">
-        <item>Female</item>
         <item>Male</item>
+        <item>Female</item>
     </string-array>
 
 </resources>
