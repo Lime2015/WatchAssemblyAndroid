@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.lime.watchassembly.kakao.KakaoExtraUserPropertyLayout;
+import com.lime.watchassembly.layout.ExtraUserPropertyLayout;
 import com.lime.watchassembly.vo.MemberInfo;
 import com.lime.watchassembly.vo.ServerResult;
 import com.loopj.android.http.AsyncHttpClient;
@@ -28,7 +28,7 @@ import java.util.HashMap;
 public class WASignupActivity extends Activity {
 
     private final String TAG = "WASignupActivity";
-    private final String SERVER_URL = "http://192.168.50.184:9080";
+    private final String SERVER_URL = "http://192.168.0.3:9080";
     private final String SERVER_SAVE_MEMBER = "/WatchAssemblyWebServer/saveMember.do";
 
     // property key
@@ -37,7 +37,7 @@ public class WASignupActivity extends Activity {
     private  static final String GENDER_KEY = "gender";
 
     Button btnWASignup;
-    KakaoExtraUserPropertyLayout waExtraUserPropertyLayout;
+    ExtraUserPropertyLayout waExtraUserPropertyLayout;
     MemberInfo kakaoMemberInfo;
 
     @Override
@@ -52,7 +52,7 @@ public class WASignupActivity extends Activity {
         kakaoMemberInfo = (MemberInfo)intent.getSerializableExtra("kakaoMemberInfo");
 
         setContentView(R.layout.wa_signup);
-        waExtraUserPropertyLayout = (KakaoExtraUserPropertyLayout) findViewById(R.id.wa_extra_user_property);
+        waExtraUserPropertyLayout = (ExtraUserPropertyLayout) findViewById(R.id.wa_extra_user_property);
         btnWASignup = (Button) findViewById(R.id.btnWASignup);
         btnWASignup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -62,7 +62,7 @@ public class WASignupActivity extends Activity {
     }
 
     /**
-     * °¡ÀÔ ÀÔ·ÂÃ¢ÀÇ Á¤º¸¸¦ ¸ð¾Æ¼­ °¡ÀÔ API¸¦ È£ÃâÇÑ´Ù.
+     * ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ APIï¿½ï¿½ È£ï¿½ï¿½ï¿½Ñ´ï¿½.
      */
     private void onClickSignup(final HashMap<String, String> properties) {
         Log.d(TAG, "request saveMember.do extra signup info...");
@@ -108,7 +108,7 @@ public class WASignupActivity extends Activity {
                 ServerResult serverResult = gson.fromJson(content, ServerResult.class);
 
                 if (serverResult.getResult() == 1) {
-                    // ½Å±ÔÈ¸¿ø µî·Ï ¼º°ø
+                    // ï¿½Å±ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                     Log.d(TAG, "complete to signup in server");
                     Toast.makeText(getApplicationContext(), "Success Signup !!", Toast.LENGTH_LONG).show();
 
@@ -116,7 +116,7 @@ public class WASignupActivity extends Activity {
                     retIntent.putExtra("kakaoMemberInfo", kakaoMemberInfo);
                     setResult(RESULT_OK, retIntent);
                 }else{
-                    // ½Å±ÔÈ¸¿ø Ã³¸® ½ÇÆÐ
+                    // ï¿½Å±ï¿½È¸ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                     Log.d(TAG, "fail to request new member info in server");
                     Toast.makeText(getApplicationContext(), "fail to request new member info in server", Toast.LENGTH_LONG).show();
 

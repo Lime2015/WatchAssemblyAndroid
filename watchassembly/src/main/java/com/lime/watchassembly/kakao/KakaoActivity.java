@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -34,7 +35,7 @@ import com.loopj.android.http.RequestParams;
 public class KakaoActivity extends Activity {
 
     private final String TAG = "KakaoActivity";
-    private final String SERVER_URL = "http://192.168.50.184:9080";
+    private final String SERVER_URL = "http://192.168.0.3:9080";
     private final String SERVER_CHECK_MEMBER = "/WatchAssemblyWebServer/checkMember.do";
     private final String SERVER_SAVE_MEMBER = "/WatchAssemblyWebServer/saveMember.do";
 
@@ -79,6 +80,14 @@ public class KakaoActivity extends Activity {
         //Initialize Progress Dialog properties
         prgDialog = new ProgressDialog(this);
         prgDialog.setCancelable(false);
+
+//        // Initialize the ViewPager and set an adapter
+//        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+//        pager.setAdapter(new TestAdapter(getSupportFragmentManager()));
+//
+//        // Bind the tabs to the ViewPager
+//        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+//        tabs.setViewPager(pager);
     }
 
     private void initializeDatabase() {

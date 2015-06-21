@@ -1,4 +1,4 @@
-package com.lime.watchassembly.kakao;
+package com.lime.watchassembly.layout;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class KakaoExtraUserPropertyLayout extends FrameLayout {
+public class ExtraUserPropertyLayout extends FrameLayout {
 
     /**
      * debug TAG
@@ -33,15 +33,15 @@ public class KakaoExtraUserPropertyLayout extends FrameLayout {
     private EditText birthday;
     private Spinner gender;
 
-    public KakaoExtraUserPropertyLayout(Context context) {
+    public ExtraUserPropertyLayout(Context context) {
         super(context);
     }
 
-    public KakaoExtraUserPropertyLayout(Context context, AttributeSet attrs) {
+    public ExtraUserPropertyLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public KakaoExtraUserPropertyLayout(Context context, AttributeSet attrs, int defStyle) {
+    public ExtraUserPropertyLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
