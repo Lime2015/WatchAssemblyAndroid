@@ -3,14 +3,27 @@ package com.lime.watchassembly.kakao;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.kakao.APIErrorResult;
@@ -22,17 +35,39 @@ import com.lime.watchassembly.R;
 
 import com.lime.watchassembly.WASignupActivity;
 import com.lime.watchassembly.db.WatchAssemblyDatabase;
+import com.lime.watchassembly.layout.pagerslidingtabstrip.QuickContactFragment;
+import com.lime.watchassembly.layout.pagerslidingtabstrip.SuperAwesomeCardFragment;
 import com.lime.watchassembly.util.WebServerController;
 import com.lime.watchassembly.vo.MemberInfo;
 import com.lime.watchassembly.vo.ServerResult;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
+
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 /**
  * Created by Administrator on 2015-06-09.
  */
-public class KakaoActivity extends Activity {
+public class KakaoActivity extends ActionBarActivity {
+
+
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
+    @InjectView(R.id.tabs)
+    PagerSlidingTabStrip tabs;
+    @InjectView(R.id.pager)
+    ViewPager pager;
+
+    private MyPagerAdapter adapter;
+    private Drawable oldBackground = null;
+    private int currentColor;
+    private SystemBarTintManager mTintManager;
+
+
 
     private final String TAG = "KakaoActivity";
     private final String SERVER_URL = "http://192.168.0.3:9080";
@@ -88,6 +123,65 @@ public class KakaoActivity extends Activity {
 //        // Bind the tabs to the ViewPager
 //        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
 //        tabs.setViewPager(pager);
+
+
+        ButterKnife.inject(this);
+        setSupportActionBar(toolbar);
+        // create our manager instance after the content view is set
+        mTintManager = new SystemBarTintManager(this);
+        // enable status bar tint
+        mTintManager.setStatusBarTintEnabled(true);
+        adapter = new MyPagerAdapter(getSupportFragmentManager());
+        pager.setAdapter(adapter);
+        tabs.setViewPager(pager);
+        final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources()
+                .getDisplayMetrics());
+        pager.setPageMargin(pageMargin);
+        pager.setCurrentItem(1);
+        changeColor(getResources().getColor(R.color.green));
+
+        tabs.setOnTabReselectedListener(new PagerSlidingTabStrip.OnTabReselectedListener() {
+            @Override
+            public void onTabReselected(int position) {
+                Toast.makeText(KakaoActivity.this, "Tab reselected: " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_contact:
+                QuickContactFragment.newInstance().show(getSupportFragmentManager(), "QuickContactFragment");
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void changeColor(int newColor) {
+        tabs.setBackgroundColor(newColor);
+        mTintManager.setTintColor(newColor);
+        // change ActionBar color just if an ActionBar is available
+        Drawable colorDrawable = new ColorDrawable(newColor);
+        Drawable bottomDrawable = new ColorDrawable(getResources().getColor(android.R.color.transparent));
+        LayerDrawable ld = new LayerDrawable(new Drawable[]{colorDrawable, bottomDrawable});
+        if (oldBackground == null) {
+            getSupportActionBar().setBackgroundDrawable(ld);
+        } else {
+            TransitionDrawable td = new TransitionDrawable(new Drawable[]{oldBackground, ld});
+            getSupportActionBar().setBackgroundDrawable(td);
+            td.startTransition(200);
+        }
+
+        oldBackground = ld;
+        currentColor = newColor;
     }
 
     private void initializeDatabase() {
@@ -218,6 +312,31 @@ public class KakaoActivity extends Activity {
             protected void onFailure(APIErrorResult apiErrorResult) {
             }
         });
+    }
+
+    public class MyPagerAdapter extends FragmentPagerAdapter {
+
+        private final String[] TITLES = {"Categories", "Home", "Top Paid", "Top Free", "Top Grossing", "Top New Paid",
+                "Top New Free", "Trending"};
+
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return TITLES[position];
+        }
+
+        @Override
+        public int getCount() {
+            return TITLES.length;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return SuperAwesomeCardFragment.newInstance(position);
+        }
     }
 
 //    private class CheckMemberTask extends AsyncTask<MemberInfo, Void, Integer> {

@@ -14,4 +14,5 @@
         <item>Female</item>
     </string-array>
 
+    <string name="action_contact">Contact</string>
 </resources>
