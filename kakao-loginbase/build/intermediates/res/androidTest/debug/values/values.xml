@@ -7,6 +7,12 @@
         <item>@string/com_kakao_other_kakaoaccount</item>
         <item>@string/com_kakao_account_cancel</item>
     </string-array>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.2/res/values/values.xml -->
+    <eat-comment/>
+    <color name="cardview_dark_background">#FF202020</color>
+    <color name="cardview_light_background">#FFFAFAFA</color>
+    <color name="cardview_shadow_end_color">#03000000</color>
+    <color name="cardview_shadow_start_color">#37000000</color>
     <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.kakao.sdk/util/1.0.52/res/values/kakao_colors.xml -->
     <eat-comment/>
     <color name="com_kakao_account_button_background">#ffffff</color>
@@ -17,6 +23,12 @@
     <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/bundles/debug/res/values/values.xml -->
     <eat-comment/>
     <color name="com_kakao_profile_text">#FFD0CD</color>
+    <declare-styleable name="CardView"><attr format="color" name="cardBackgroundColor"/><attr format="dimension" name="cardCornerRadius"/><attr format="dimension" name="cardElevation"/><attr format="dimension" name="cardMaxElevation"/><attr format="boolean" name="cardUseCompatPadding"/><attr format="boolean" name="cardPreventCornerOverlap"/><attr format="dimension" name="contentPadding"/><attr format="dimension" name="contentPaddingLeft"/><attr format="dimension" name="contentPaddingRight"/><attr format="dimension" name="contentPaddingTop"/><attr format="dimension" name="contentPaddingBottom"/></declare-styleable>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.2/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="cardview_compat_inset_shadow">1dp</dimen>
+    <dimen name="cardview_default_elevation">2dp</dimen>
+    <dimen name="cardview_default_radius">2dp</dimen>
     <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.kakao.sdk/util/1.0.52/res/values/kakao_dimens.xml -->
     <eat-comment/>
     <dimen name="com_kakao_padding">10dp</dimen>
@@ -50,6 +62,24 @@
     <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/bundles/debug/res/values/values.xml -->
     <eat-comment/>
     <string name="kakao_app_key">39f58e7f2959ab84fd8100248fea748f</string>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.2/res/values/values.xml -->
+    <eat-comment/>
+    <style name="CardView">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+        <item name="cardCornerRadius">@dimen/cardview_default_radius</item>
+        <item name="cardElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardMaxElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style>
+    <style name="CardView.Dark">
+        <item name="cardBackgroundColor">@color/cardview_dark_background</item>
+    </style>
+    <style name="CardView.Light">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+    </style>
+    <!-- From: file:/C:/Lime/dev/WatchAssemblyAndroid/kakao-loginbase/build/intermediates/bundles/debug/res/values/values.xml -->
+    <eat-comment/>
     <style name="com_kakao_profile_property_label" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

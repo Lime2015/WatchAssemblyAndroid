@@ -10,18 +10,38 @@ public final class R {
 	public static final class array {
 		public static final int com_kakao_accounts_array = 0x7f040000;
 	}
+	public static final class attr {
+		public static final int cardBackgroundColor = 0x7f010000;
+		public static final int cardCornerRadius = 0x7f010001;
+		public static final int cardElevation = 0x7f010002;
+		public static final int cardMaxElevation = 0x7f010003;
+		public static final int cardPreventCornerOverlap = 0x7f010005;
+		public static final int cardUseCompatPadding = 0x7f010004;
+		public static final int contentPadding = 0x7f010006;
+		public static final int contentPaddingBottom = 0x7f01000a;
+		public static final int contentPaddingLeft = 0x7f010007;
+		public static final int contentPaddingRight = 0x7f010008;
+		public static final int contentPaddingTop = 0x7f010009;
+	}
 	public static final class color {
-		public static final int com_kakao_account_button_background = 0x7f050000;
-		public static final int com_kakao_brown = 0x7f050001;
-		public static final int com_kakao_button_background_press = 0x7f050002;
-		public static final int com_kakao_button_text_press = 0x7f050003;
-		public static final int com_kakao_cancel_button_background = 0x7f050004;
-		public static final int com_kakao_profile_text = 0x7f050005;
+		public static final int cardview_dark_background = 0x7f050000;
+		public static final int cardview_light_background = 0x7f050001;
+		public static final int cardview_shadow_end_color = 0x7f050002;
+		public static final int cardview_shadow_start_color = 0x7f050003;
+		public static final int com_kakao_account_button_background = 0x7f050004;
+		public static final int com_kakao_brown = 0x7f050005;
+		public static final int com_kakao_button_background_press = 0x7f050006;
+		public static final int com_kakao_button_text_press = 0x7f050007;
+		public static final int com_kakao_cancel_button_background = 0x7f050008;
+		public static final int com_kakao_profile_text = 0x7f050009;
 	}
 	public static final class dimen {
-		public static final int com_kakao_padding = 0x7f060000;
-		public static final int com_kakao_profile_property_margin = 0x7f060001;
-		public static final int com_kakao_profile_property_text = 0x7f060002;
+		public static final int cardview_compat_inset_shadow = 0x7f060000;
+		public static final int cardview_default_elevation = 0x7f060001;
+		public static final int cardview_default_radius = 0x7f060002;
+		public static final int com_kakao_padding = 0x7f060003;
+		public static final int com_kakao_profile_property_margin = 0x7f060004;
+		public static final int com_kakao_profile_property_text = 0x7f060005;
 	}
 	public static final class drawable {
 		public static final int kakao_account_button_background = 0x7f020000;
@@ -74,7 +94,24 @@ public final class R {
 		public static final int kakao_app_key = 0x7f070011;
 	}
 	public static final class style {
-		public static final int com_kakao_profile_property_label = 0x7f080000;
-		public static final int com_kakao_profile_property_value = 0x7f080001;
+		public static final int CardView = 0x7f080000;
+		public static final int CardView_Dark = 0x7f080001;
+		public static final int CardView_Light = 0x7f080002;
+		public static final int com_kakao_profile_property_label = 0x7f080003;
+		public static final int com_kakao_profile_property_value = 0x7f080004;
+	}
+	public static final class styleable {
+		public static final int[] CardView = { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a };
+		public static final int CardView_cardBackgroundColor = 0;
+		public static final int CardView_cardCornerRadius = 1;
+		public static final int CardView_cardElevation = 2;
+		public static final int CardView_cardMaxElevation = 3;
+		public static final int CardView_cardPreventCornerOverlap = 5;
+		public static final int CardView_cardUseCompatPadding = 4;
+		public static final int CardView_contentPadding = 6;
+		public static final int CardView_contentPaddingBottom = 10;
+		public static final int CardView_contentPaddingLeft = 7;
+		public static final int CardView_contentPaddingRight = 8;
+		public static final int CardView_contentPaddingTop = 9;
 	}
 }

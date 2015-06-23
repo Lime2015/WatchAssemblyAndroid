@@ -11,16 +11,16 @@ public final class R {
 		public static final int com_kakao_accounts_array = 0x7f040000;
 	}
 	public static final class color {
-		public static final int com_kakao_account_button_background = 0x7f050000;
-		public static final int com_kakao_brown = 0x7f050001;
-		public static final int com_kakao_button_background_press = 0x7f050002;
-		public static final int com_kakao_button_text_press = 0x7f050003;
-		public static final int com_kakao_cancel_button_background = 0x7f050004;
+		public static final int com_kakao_account_button_background = 0x7f050004;
+		public static final int com_kakao_brown = 0x7f050005;
+		public static final int com_kakao_button_background_press = 0x7f050006;
+		public static final int com_kakao_button_text_press = 0x7f050007;
+		public static final int com_kakao_cancel_button_background = 0x7f050008;
 	}
 	public static final class dimen {
-		public static final int com_kakao_padding = 0x7f060000;
-		public static final int com_kakao_profile_property_margin = 0x7f060001;
-		public static final int com_kakao_profile_property_text = 0x7f060002;
+		public static final int com_kakao_padding = 0x7f060003;
+		public static final int com_kakao_profile_property_margin = 0x7f060004;
+		public static final int com_kakao_profile_property_text = 0x7f060005;
 	}
 	public static final class drawable {
 		public static final int kakao_account_button_background = 0x7f020000;
