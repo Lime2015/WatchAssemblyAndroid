@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WatchAssemblyAndroid.iml" filepath="$PROJECT_DIR$/WatchAssemblyAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/kakao-loginbase/kakao-loginbase.iml" filepath="$PROJECT_DIR$/kakao-loginbase/kakao-loginbase.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/watchassembly/watchassembly.iml" filepath="$PROJECT_DIR$/watchassembly/watchassembly.iml" />
     </modules>
   </component>

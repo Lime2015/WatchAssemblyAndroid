@@ -28,7 +28,7 @@ import java.util.HashMap;
 public class WASignupActivity extends Activity {
 
     private final String TAG = "WASignupActivity";
-    private final String SERVER_URL = "http://192.168.0.3:9080";
+    private final String SERVER_URL = "http://192.168.50.184:9080";
     private final String SERVER_SAVE_MEMBER = "/WatchAssemblyWebServer/saveMember.do";
 
     // property key

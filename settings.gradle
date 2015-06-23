@@ -1,1 +1,1 @@
-include ':kakao-loginbase', ':watchassembly', ':library'
+include ':kakao-loginbase', ':watchassembly'
