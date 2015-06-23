@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,16 +11,35 @@
         android:orientation="horizontal">
 
         <TextView
-            android:textSize="15dp"
-            android:id="@+id/txtNickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:id="@+id/txtNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp" />
+
+        <!--&lt;!&ndash; FlatTextView &ndash;&gt;-->
+        <!--<com.cengalabs.flatui.views.FlatTextView-->
+            <!--android:id="@+id/txtNickname"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="15dp"-->
+            <!--flatui:fl_backgroundColor="#aaaaaa"-->
+            <!--flatui:fl_customBackgroundColor="#aaaaaa"-->
+            <!--flatui:fl_textColor="#00ff00" />-->
 
         <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그아웃" />
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그아웃" />
+
+        <!--&lt;!&ndash; FlatButton &ndash;&gt;-->
+        <!--<com.cengalabs.flatui.views.FlatButton-->
+            <!--android:id="@+id/btnLogout"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="로그아웃"-->
+            <!--flatui:fl_blockButtonEffectHeight="3dp"-->
+            <!--flatui:fl_touchEffect="fl_ripple" />-->
 
     </LinearLayout>
 

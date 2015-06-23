@@ -46,6 +46,8 @@ public class KakaoActivity extends Activity {
 
     private Button btnLogout;
     private TextView txtNickname;
+//    private FlatButton btnLogout;
+//    private FlatTextView txtNickname;
 
     private WatchAssemblyDatabase database;
     private WebServerController controller;

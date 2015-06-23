@@ -41,4 +41,11 @@ dependencies {
     compile files('libs/android-async-http-1.4.4.jar')
     compile files('libs/gson-2.2.2.jar')
     compile files('libs/basic-http-client-android-0.88.jar')
+
+//    /////////////////////////////////////////////////////////
+//    compile 'com.github.eluleci:flatui:3.0.0'
+
+    compile "com.android.support:support-v4:21.0.2"
+    compile "com.android.support:support-v13:21.0.2"
+    compile "com.android.support:cardview-v7:21.0.2"
 }
