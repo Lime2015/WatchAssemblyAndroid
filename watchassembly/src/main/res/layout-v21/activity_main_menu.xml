@@ -67,21 +67,21 @@
 
             <Button
                 style="@style/Item.Large"
-                android:background="@drawable/light_green_oval_selector"
+                android:background="@drawable/tumblr_orange_oval"
                 android:text="마이\n페이지"
                 app:arc_angle="180"
                 />
 
         </com.ogaclejapan.arclayout.ArcLayout>
 
-        <TextView
-            android:id="@+id/note_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:textSize="16sp"
-            />
+        <ImageView
+            android:layout_gravity="center"
+            android:background="@drawable/emblem"
+            android:scaleType="centerCrop"
+            android:layout_width="@dimen/layout_child_offset_medium"
+            android:layout_height="@dimen/layout_child_offset_medium" />
 
     </FrameLayout>
+
 
 </LinearLayout>
