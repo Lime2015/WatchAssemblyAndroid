@@ -5,42 +5,30 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <ImageView
+        android:layout_gravity="center"
+        android:background="@drawable/emblem"
+        android:scaleType="centerCrop"
+        android:layout_width="@dimen/layout_child_offset_medium"
+        android:layout_height="@dimen/layout_child_offset_medium" />
 
-        <TextView
-        android:id="@+id/txtNickname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15dp" />
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
 
-        <!--&lt;!&ndash; FlatTextView &ndash;&gt;-->
-        <!--<com.cengalabs.flatui.views.FlatTextView-->
-            <!--android:id="@+id/txtNickname"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textSize="15dp"-->
-            <!--flatui:fl_backgroundColor="#aaaaaa"-->
-            <!--flatui:fl_customBackgroundColor="#aaaaaa"-->
-            <!--flatui:fl_textColor="#00ff00" />-->
+        <!--<TextView-->
+        <!--android:id="@+id/txtNickname"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="15dp" />-->
 
-        <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그아웃" />
+        <!--<Button-->
+        <!--android:id="@+id/btnLogout"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="로그아웃" />-->
 
-        <!--&lt;!&ndash; FlatButton &ndash;&gt;-->
-        <!--<com.cengalabs.flatui.views.FlatButton-->
-            <!--android:id="@+id/btnLogout"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="로그아웃"-->
-            <!--flatui:fl_blockButtonEffectHeight="3dp"-->
-            <!--flatui:fl_touchEffect="fl_ripple" />-->
-
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
 </LinearLayout>

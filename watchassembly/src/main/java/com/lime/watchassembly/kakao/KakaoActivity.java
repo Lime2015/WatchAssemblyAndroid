@@ -36,23 +36,22 @@ public class KakaoActivity extends Activity {
 
 
     private final String TAG = "KakaoActivity";
-    private final String SERVER_URL = "http://192.168.0.3:9080";
-//    private final String SERVER_URL = "http://192.168.50.184:9080";
+    private final String SERVER_URL = "http://222.237.239.57:8080";
     private final String SERVER_CHECK_MEMBER = "/WatchAssemblyWebServer/checkMember.do";
-    private final String SERVER_SAVE_MEMBER = "/WatchAssemblyWebServer/saveMember.do";
+//    private final String SERVER_SAVE_MEMBER = "/WatchAssemblyWebServer/saveMember.do";
 
     private final int WA_SIGNUP_CODE = 1100;
 
     private MemberInfo kakaoMemberInfo;
     private UserProfile userProfile;
 
-    private Button btnLogout;
-    private TextView txtNickname;
+//    private Button btnLogout;
+//    private TextView txtNickname;
 //    private FlatButton btnLogout;
 //    private FlatTextView txtNickname;
 
     private WatchAssemblyDatabase database;
-    private WebServerController controller;
+//    private WebServerController controller;
 
     //Progress Dialog Object
     ProgressDialog prgDialog;
@@ -71,16 +70,16 @@ public class KakaoActivity extends Activity {
 
         kakaoMemberInfo = null;
         userProfile = UserProfile.loadFromCache();
-        controller = new WebServerController();
+//        controller = new WebServerController();
 
-        txtNickname = (TextView) findViewById(R.id.txtNickname);
-        btnLogout = (Button) findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectLogoutActivity();
-            }
-        });
+//        txtNickname = (TextView) findViewById(R.id.txtNickname);
+//        btnLogout = (Button) findViewById(R.id.btnLogout);
+//        btnLogout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                redirectLogoutActivity();
+//            }
+//        });
 
         //Initialize Progress Dialog properties
         prgDialog = new ProgressDialog(this);
@@ -129,7 +128,7 @@ public class KakaoActivity extends Activity {
                 Log.d(TAG, "로그인정보:" + id + "/" + nickname);
 
                 kakaoMemberInfo = new MemberInfo("" + id, 1, nickname);
-                txtNickname.setText(kakaoMemberInfo.getMemberNickname());
+//                txtNickname.setText(kakaoMemberInfo.getMemberNickname());
 
                 // web server 회원인지 체크
                 checkMemberInServer();
@@ -171,9 +170,10 @@ public class KakaoActivity extends Activity {
 
             @Override
             public void onFailure(int statusCode, Throwable error, String content) {
-                prgDialog.hide();
+//                prgDialog.hide();
                 Log.d(TAG, "AsyncHttpClient response fail:" + statusCode);
-                Toast.makeText(getApplicationContext(), "AsyncHttpClient response fail:" + statusCode, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "서버연결실패!!" + statusCode, Toast.LENGTH_LONG).show();
+                redirectMainActivity();
             }
         });
     }
@@ -230,7 +230,7 @@ public class KakaoActivity extends Activity {
                 Log.d(TAG, "로그아웃");
 
                 kakaoMemberInfo = null;
-                txtNickname.setText("");
+//                txtNickname.setText("");
                 redirectMainActivity();
             }
 
