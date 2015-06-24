@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://$PROJECT_DIR$/library" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/pager-sliding-tab-strip" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/arc-library" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/cyan_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/cyan_oval_pressed.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/cyan_oval_selector.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/green_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/green_oval_pressed.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/green_oval_selector.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/light_blue_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/light_blue_oval_pressed.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/light_blue_oval_selector.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/light_green_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/light_green_oval_pressed.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/light_green_oval_selector.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/path_fab.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/path_white_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/teal_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/teal_oval_pressed.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/teal_oval_selector.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/tumblr_blue_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/tumblr_green_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/tumblr_grey_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/tumblr_menu_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/tumblr_orange_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/tumblr_red_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/drawable-xhdpi/tumblr_white_oval.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/values-ko/colors.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/values-ko/dimens.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/watchassembly/src/main/res/values-ko/styles.xml" charset="x-windows-949" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

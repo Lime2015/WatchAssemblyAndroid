@@ -16,7 +16,8 @@ import com.kakao.APIErrorResult;
 import com.kakao.LogoutResponseCallback;
 import com.kakao.UserManagement;
 import com.kakao.UserProfile;
-import com.lime.watchassembly.MainActivity;
+import com.lime.watchassembly.MainLoginTypeActivity;
+import com.lime.watchassembly.MainMenuActivity;
 import com.lime.watchassembly.R;
 
 import com.lime.watchassembly.WASignupActivity;
@@ -197,6 +198,11 @@ public class KakaoActivity extends Activity {
     private void showMyPage() {
         Toast.makeText(getApplicationContext(), "Show MyPage !!", Toast.LENGTH_LONG).show();
 
+        // MainMenuActivity
+        Intent intent = new Intent(this, MainMenuActivity.class);
+        intent.putExtra("memberInfo", kakaoMemberInfo);
+        startActivity(intent);
+        finish();
     }
 
     private void redirectLoginActivity() {
@@ -211,7 +217,7 @@ public class KakaoActivity extends Activity {
     }
 
     private void redirectMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MainLoginTypeActivity.class);
         startActivity(intent);
         finish();
     }
