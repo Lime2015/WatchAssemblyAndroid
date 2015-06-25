@@ -60,6 +60,7 @@ public class KakaoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initializeView();
+//        checkLoginInfo();
         redirectLoginActivity();
         initializeDatabase();
 
@@ -120,6 +121,11 @@ public class KakaoActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        checkLoginInfo();
+    }
+
+    private void checkLoginInfo(){
+        Log.d(TAG,"checkLoginInfo start >>");
         if (kakaoMemberInfo == null && userProfile != null) {
             long id = userProfile.getId();
             String nickname = userProfile.getNickname();
@@ -135,7 +141,6 @@ public class KakaoActivity extends Activity {
             }
         }
     }
-
     /**
      * check web server member
      */
@@ -197,7 +202,7 @@ public class KakaoActivity extends Activity {
     }
 
     private void showMyPage() {
-        Toast.makeText(getApplicationContext(), "Show MyPage !!", Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), "Show MyPage !!", Toast.LENGTH_LONG).show();
 
         // MainMenuActivity
         Intent intent = new Intent(this, MainMenuActivity.class);

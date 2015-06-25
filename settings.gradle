@@ -1,1 +1,1 @@
-include ':kakao-loginbase', ':watchassembly', ':pst-library', ':arc-library'
+include ':kakao-loginbase', ':watchassembly', ':library-arc', ':library-pst'

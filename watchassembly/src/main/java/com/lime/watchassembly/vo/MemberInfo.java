@@ -14,7 +14,9 @@ public class MemberInfo implements Serializable {
     private Date birthDate;
     private String gender;
 
-    public MemberInfo(){}
+    public MemberInfo(){
+        memberId = "";
+    }
 
     public MemberInfo(String memberId, int logonTypeId, String memberNickname) {
         this.memberId = memberId;

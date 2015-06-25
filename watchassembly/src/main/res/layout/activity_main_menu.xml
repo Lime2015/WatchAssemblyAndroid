@@ -5,19 +5,41 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtNickname"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15dp" />
+        android:background="@color/tumblr_grey">
 
-    <FrameLayout
-        android:background="@color/primary"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+        <TextView
+            android:id="@+id/txtNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/btnLogout"
+            android:text="nickname"
+            android:textSize="15dp" />
+
+        <ImageButton
+            android:id="@+id/btnLogout"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="Logout"
+            android:longClickable="true"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logout" />
+
+    </RelativeLayout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:background="@color/primary">
 
         <com.ogaclejapan.arclayout.ArcLayout
             android:id="@+id/arc_layout"
@@ -27,52 +49,46 @@
             app:arc_color="@color/pressed"
             app:arc_freeAngle="true"
             app:arc_origin="center"
-            app:arc_radius="@dimen/layout_radius_medium"
-            >
+            app:arc_radius="@dimen/layout_radius_medium">
 
             <Button
                 style="@style/Item.Large"
                 android:background="@drawable/light_blue_oval_selector"
                 android:text="국회\n의원"
-                app:arc_angle="-90"
-                />
+                app:arc_angle="-90" />
 
             <Button
                 style="@style/Item.Large"
                 android:background="@drawable/cyan_oval_selector"
                 android:text="의안"
-                app:arc_angle="-30"
-                />
+                app:arc_angle="-30" />
 
             <Button
                 style="@style/Item.Large"
                 android:background="@drawable/teal_oval_selector"
                 android:text="명예\n전당"
-                app:arc_angle="30"
-                />
+                app:arc_angle="30" />
 
             <Button
                 style="@style/Item.Large"
                 android:background="@drawable/green_oval_selector"
                 android:text="국민\n참여"
-                app:arc_angle="90"
-                />
+                app:arc_angle="90" />
 
             <Button
                 style="@style/Item.Large"
                 android:background="@drawable/tumblr_orange_oval"
                 android:text="마이\n페이지"
-                app:arc_angle="180"
-                />
+                app:arc_angle="180" />
 
         </com.ogaclejapan.arclayout.ArcLayout>
 
         <ImageView
+            android:layout_width="@dimen/layout_child_offset_medium"
+            android:layout_height="@dimen/layout_child_offset_medium"
             android:layout_gravity="center"
             android:background="@drawable/emblem"
-            android:scaleType="centerCrop"
-            android:layout_width="@dimen/layout_child_offset_medium"
-            android:layout_height="@dimen/layout_child_offset_medium" />
+            android:scaleType="centerCrop" />
 
     </FrameLayout>
 
