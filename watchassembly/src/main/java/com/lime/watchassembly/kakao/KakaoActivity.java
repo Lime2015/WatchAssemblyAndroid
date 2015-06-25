@@ -36,7 +36,7 @@ public class KakaoActivity extends Activity {
 
 
     private final String TAG = "KakaoActivity";
-    private final String SERVER_URL = "http://222.237.239.57:8080";
+    private final String SERVER_URL = "http://52.69.102.82:8080";
     private final String SERVER_CHECK_MEMBER = "/WatchAssemblyWebServer/checkMember.do";
 //    private final String SERVER_SAVE_MEMBER = "/WatchAssemblyWebServer/saveMember.do";
 

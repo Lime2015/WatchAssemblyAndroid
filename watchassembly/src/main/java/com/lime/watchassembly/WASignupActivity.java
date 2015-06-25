@@ -28,10 +28,10 @@ import java.util.HashMap;
 public class WASignupActivity extends Activity {
 
     private final String TAG = "WASignupActivity";
-    private final String SERVER_URL = "http://222.237.239.57:8080";
+    private final String SERVER_URL = "http://52.69.102.82:8080";
     private final String SERVER_SAVE_MEMBER = "/WatchAssemblyWebServer/saveMember.do";
 
-    // property key
+    // property keyQu
     private  static final String ADDRESS_KEY = "address";
     private  static final String BIRTHDAY_KEY = "birthday";
     private  static final String GENDER_KEY = "gender";
