@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.lime.watchassembly.kakao.KakaoActivity;
-import com.lime.watchassembly.layout.ExtraUserPropertyLayout;
+import com.lime.watchassembly.layout.ExtraUserPropertyFrame;
 import com.lime.watchassembly.vo.MemberInfo;
 import com.lime.watchassembly.vo.ServerResult;
 import com.loopj.android.http.AsyncHttpClient;
@@ -38,7 +38,7 @@ public class WASignupActivity extends Activity {
     private  static final String GENDER_KEY = "gender";
 
     Button btnWASignup;
-    ExtraUserPropertyLayout waExtraUserPropertyLayout;
+    ExtraUserPropertyFrame waExtraUserPropertyFrame;
     MemberInfo kakaoMemberInfo;
 
     @Override
@@ -53,11 +53,11 @@ public class WASignupActivity extends Activity {
         kakaoMemberInfo = (MemberInfo)intent.getSerializableExtra("kakaoMemberInfo");
 
         setContentView(R.layout.wa_signup);
-        waExtraUserPropertyLayout = (ExtraUserPropertyLayout) findViewById(R.id.wa_extra_user_property);
+        waExtraUserPropertyFrame = (ExtraUserPropertyFrame) findViewById(R.id.wa_extra_user_property);
         btnWASignup = (Button) findViewById(R.id.btnWASignup);
         btnWASignup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                onClickSignup(waExtraUserPropertyLayout.getProperties());
+                onClickSignup(waExtraUserPropertyFrame.getProperties());
             }
         });
     }

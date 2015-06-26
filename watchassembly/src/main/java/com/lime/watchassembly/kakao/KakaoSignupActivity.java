@@ -11,7 +11,7 @@ import com.kakao.SignupResponseCallback;
 import com.kakao.UserManagement;
 import com.lime.template.loginbase.SampleSignupActivity;
 import com.lime.watchassembly.R;
-import com.lime.watchassembly.layout.ExtraUserPropertyLayout;
+import com.lime.watchassembly.layout.ExtraUserPropertyFrame;
 
 import java.util.HashMap;
 
@@ -39,11 +39,11 @@ public class KakaoSignupActivity extends SampleSignupActivity {
 
     protected void showSignup() {
         setContentView(R.layout.kakao_signup);
-        final ExtraUserPropertyLayout extraUserPropertyLayout = (ExtraUserPropertyLayout) findViewById(R.id.extra_user_property);
+        final ExtraUserPropertyFrame extraUserPropertyFrame = (ExtraUserPropertyFrame) findViewById(R.id.extra_user_property);
         Button signupButton = (Button) findViewById(R.id.buttonSignup);
         signupButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                onClickSignup(extraUserPropertyLayout.getProperties());
+                onClickSignup(extraUserPropertyFrame.getProperties());
             }
         });
     }

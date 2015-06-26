@@ -44,6 +44,41 @@
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity
+            android:name=".AssemblymanFragActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".AssemblymanListActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".BillFragActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".BillListActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".HallOfFameFragActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".MypageFragActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".PublicOpinionListActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />

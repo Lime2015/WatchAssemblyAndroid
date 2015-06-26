@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/btnLogout"
             android:text="nickname"
-            android:textSize="15dp" />
+            android:textSize="@dimen/item_font_size_large" />
 
         <ImageButton
             android:id="@+id/btnLogout"

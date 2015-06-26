@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ExtraUserPropertyLayout extends FrameLayout {
+public class ExtraUserPropertyFrame extends FrameLayout {
 
     /**
      * debug TAG
@@ -33,15 +33,15 @@ public class ExtraUserPropertyLayout extends FrameLayout {
     private EditText birthday;
     private Spinner gender;
 
-    public ExtraUserPropertyLayout(Context context) {
+    public ExtraUserPropertyFrame(Context context) {
         super(context);
     }
 
-    public ExtraUserPropertyLayout(Context context, AttributeSet attrs) {
+    public ExtraUserPropertyFrame(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ExtraUserPropertyLayout(Context context, AttributeSet attrs, int defStyle) {
+    public ExtraUserPropertyFrame(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

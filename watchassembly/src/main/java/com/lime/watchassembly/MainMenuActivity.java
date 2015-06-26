@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kakao.APIErrorResult;
 import com.kakao.LogoutResponseCallback;
@@ -60,6 +61,15 @@ public class MainMenuActivity extends Activity implements OnClickListener {
             arcLayout.getChildAt(i).setOnClickListener(this);
         }
 
+        if(memberInfo.getMemberId().equals("")){
+            // 둘러보기인 경우 마이페이지 비 활성화
+            disableButton(4);
+        }
+    }
+
+    private void disableButton(int i) {
+        arcLayout.getChildAt(i).setEnabled(false);
+        arcLayout.getChildAt(i).setAlpha(0.3f);
     }
 
     private void redirectLogoutActivity() {
@@ -88,7 +98,49 @@ public class MainMenuActivity extends Activity implements OnClickListener {
     @Override
     public void onClick(View view) {
         if (view instanceof Button) {
-
+            Button button = (Button)view;
+//            Toast.makeText(getApplicationContext(), "button text:" + button.getText(), Toast.LENGTH_SHORT).show();
+            String nameIdx = button.getText().toString().substring(0,2);
+            Log.d(TAG,"button text:" + nameIdx);
+            
+            switch (nameIdx){
+                case "국회":
+                    viewAssemblymanList();
+                    break;
+                case "의원":
+                    viewBillList();
+                    break;
+                case "명예":
+                    viewHallOfFame();
+                    break;
+                case "국민":
+                    viewPublicOpinion();
+                    break;
+                case "마이":
+                    viewMypage();
+                    break;
+            }
         }
+    }
+
+    private void viewMypage() {
+
+    }
+
+    private void viewPublicOpinion() {
+
+    }
+
+    private void viewHallOfFame() {
+
+    }
+
+    private void viewBillList() {
+
+    }
+
+    private void viewAssemblymanList() {
+        Intent intent = new Intent(this, AssemblymanListActivity.class);
+        startActivity(intent);
     }
 }
