@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.lime.watchassembly.kakao.KakaoActivity;
 import com.lime.watchassembly.layout.ExtraUserPropertyLayout;
 import com.lime.watchassembly.vo.MemberInfo;
 import com.lime.watchassembly.vo.ServerResult;
@@ -62,7 +63,7 @@ public class WASignupActivity extends Activity {
     }
 
     /**
-     * ���� �Է�â�� ������ ��Ƽ� ���� API�� ȣ���Ѵ�.
+     * 서버에 없는 데이터가 없는 신규 회원의 경우 추가 정보 받기
      */
     private void onClickSignup(final HashMap<String, String> properties) {
         Log.d(TAG, "request saveMember.do extra signup info...");
@@ -108,23 +109,26 @@ public class WASignupActivity extends Activity {
                 ServerResult serverResult = gson.fromJson(content, ServerResult.class);
 
                 if (serverResult.getResult() == 1) {
-                    // �ű�ȸ�� ��� ����
+                    // 정상 신규 등록
                     Log.d(TAG, "complete to signup in server");
                     Toast.makeText(getApplicationContext(), "Success Signup !!", Toast.LENGTH_LONG).show();
 
-                    Intent retIntent = new Intent();
-                    retIntent.putExtra("kakaoMemberInfo", kakaoMemberInfo);
-                    setResult(RESULT_OK, retIntent);
-                }else{
-                    // �ű�ȸ�� ó�� ����
+                    redirectKakaoActivity();
+//                    Intent retIntent = new Intent();
+//                    retIntent.putExtra("kakaoMemberInfo", kakaoMemberInfo);
+//                    setResult(RESULT_OK, retIntent);
+//                    finish();
+                } else {
+                    // 신규 등록 실패
                     Log.d(TAG, "fail to request new member info in server");
                     Toast.makeText(getApplicationContext(), "fail to request new member info in server", Toast.LENGTH_LONG).show();
 
-                    Intent retIntent = new Intent();
-                    retIntent.putExtra("kakaoMemberInfo", kakaoMemberInfo);
-                    setResult(RESULT_CANCELED, retIntent);
+                    redirectKakaoActivity();
+//                    Intent retIntent = new Intent();
+//                    retIntent.putExtra("kakaoMemberInfo", kakaoMemberInfo);
+//                    setResult(RESULT_CANCELED, retIntent);
+//                    finish();
                 }
-                finish();
             }
 
             @Override
@@ -133,12 +137,20 @@ public class WASignupActivity extends Activity {
                 Log.d(TAG, "AsyncHttpClient response fail:" + statusCode);
                 Toast.makeText(getApplicationContext(), "AsyncHttpClient response fail:" + statusCode, Toast.LENGTH_LONG).show();
 
-                Intent retIntent = new Intent();
-                retIntent.putExtra("kakaoMemberInfo", kakaoMemberInfo);
-                setResult(RESULT_CANCELED, retIntent);
-                finish();
+                redirectKakaoActivity();
+//                Intent retIntent = new Intent();
+//                retIntent.putExtra("kakaoMemberInfo", kakaoMemberInfo);
+//                setResult(RESULT_CANCELED, retIntent);
+//                finish();
             }
         });
+    }
+
+
+    private void redirectKakaoActivity() {
+        Intent intent = new Intent(this, KakaoActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

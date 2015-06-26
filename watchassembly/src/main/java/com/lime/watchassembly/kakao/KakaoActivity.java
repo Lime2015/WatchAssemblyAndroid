@@ -99,7 +99,6 @@ public class KakaoActivity extends Activity {
     }
 
 
-
     private void initializeDatabase() {
         if (database != null) {
             database.close();
@@ -124,8 +123,8 @@ public class KakaoActivity extends Activity {
         checkLoginInfo();
     }
 
-    private void checkLoginInfo(){
-        Log.d(TAG,"checkLoginInfo start >>");
+    private void checkLoginInfo() {
+        Log.d(TAG, "checkLoginInfo start >>");
         if (kakaoMemberInfo == null && userProfile != null) {
             long id = userProfile.getId();
             String nickname = userProfile.getNickname();
@@ -141,6 +140,7 @@ public class KakaoActivity extends Activity {
             }
         }
     }
+
     /**
      * check web server member
      */
@@ -167,7 +167,7 @@ public class KakaoActivity extends Activity {
                 if (serverResult.getResult() == 0) {
                     // 신규회원
                     redirectWASignupActivity();
-                }else{
+                } else {
                     // 기존회원
                     showMyPage();
                 }
@@ -187,19 +187,24 @@ public class KakaoActivity extends Activity {
         Intent intent = new Intent(this, WASignupActivity.class);
         intent.putExtra("kakaoMemberInfo", kakaoMemberInfo);
         startActivityForResult(intent, WA_SIGNUP_CODE);
+        finish();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == WA_SIGNUP_CODE) {
-            if (resultCode == RESULT_OK) {
-                kakaoMemberInfo = (MemberInfo) data.getSerializableExtra("kakaoMemberInfo");
-                showMyPage();
-            }
-        }
-    }
+//        @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+////        super.onActivityResult(requestCode, resultCode, data);
+//
+////        Toast.makeText(getApplicationContext(), "WA_SIGNUP_CODE:" + WA_SIGNUP_CODE + " RESULT_OK:" + RESULT_OK, Toast.LENGTH_LONG).show();
+//        Log.d(TAG, "WA_SIGNUP_CODE:" + requestCode + " RESULT_OK:" + resultCode);
+//
+//        if (requestCode == WA_SIGNUP_CODE) {
+//            if (resultCode == RESULT_OK) {
+//                kakaoMemberInfo = (MemberInfo) data.getSerializableExtra("kakaoMemberInfo");
+//                showMyPage();
+//            }
+//        }
+//    }
 
     private void showMyPage() {
 //        Toast.makeText(getApplicationContext(), "Show MyPage !!", Toast.LENGTH_LONG).show();
@@ -216,7 +221,7 @@ public class KakaoActivity extends Activity {
             Log.d(TAG, "카카오 로그인 시도 시작");
             Intent intent = new Intent(this, KakaoLoginActivity.class);
             startActivity(intent);
-//            finish();
+            finish();
         }
 
         Log.d(TAG, "redirectLoginActivity success!!");
