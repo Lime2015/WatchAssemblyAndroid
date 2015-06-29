@@ -4,10 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WatchAssemblyAndroid.iml" filepath="$PROJECT_DIR$/WatchAssemblyAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/kakao-loginbase/kakao-loginbase.iml" filepath="$PROJECT_DIR$/kakao-loginbase/kakao-loginbase.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library-arc/library-arc.iml" filepath="$PROJECT_DIR$/library-arc/library-arc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library-pst/library-pst.iml" filepath="$PROJECT_DIR$/library-pst/library-pst.iml" />
       <module fileurl="file://$PROJECT_DIR$/watchassembly/watchassembly.iml" filepath="$PROJECT_DIR$/watchassembly/watchassembly.iml" />
     </modules>
   </component>
 </project>
-

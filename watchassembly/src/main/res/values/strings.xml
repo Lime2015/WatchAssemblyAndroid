@@ -9,6 +9,8 @@
     <string name="birthday">Select Your BirthDay</string>
     <string name="gender">Select Your Gender</string>
 
+    <string name="assemblymanlist_name">Assemblyman List</string>
+
     <string-array name="gender_types">
         <item>Male</item>
         <item>Female</item>

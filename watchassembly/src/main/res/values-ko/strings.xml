@@ -9,6 +9,8 @@
     <string name="birthday">생일을 입력하세요.</string>
     <string name="gender">성별을 입력하세요.</string>
 
+    <string name="assemblymanlist_name">국회의원 목록</string>
+
     <string-array name="gender_types">
         <item>남</item>
         <item>여</item>

@@ -36,52 +36,46 @@
     </RelativeLayout>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primary">
 
-        <com.ogaclejapan.arclayout.ArcLayout
-            android:id="@+id/arc_layout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:arc_axisRadius="@dimen/layout_child_offset_medium"
-            app:arc_color="@color/pressed"
-            app:arc_freeAngle="true"
-            app:arc_origin="center"
-            app:arc_radius="@dimen/layout_radius_medium">
+            android:orientation="vertical">
 
             <Button
+                android:id="@+id/btnViewAssemblymanList"
                 style="@style/Item.Large"
                 android:background="@drawable/light_blue_oval_selector"
-                android:text="국회\n의원"
-                app:arc_angle="-90" />
+                android:text="국회\n의원" />
 
             <Button
+                android:id="@+id/btnViewBillList"
                 style="@style/Item.Large"
                 android:background="@drawable/cyan_oval_selector"
-                android:text="의안"
-                app:arc_angle="-30" />
+                android:text="의안" />
 
             <Button
+                android:id="@+id/btnViewHallOfFame"
                 style="@style/Item.Large"
                 android:background="@drawable/teal_oval_selector"
-                android:text="명예\n전당"
-                app:arc_angle="30" />
+                android:text="명예\n전당" />
 
             <Button
+                android:id="@+id/btnViewPublicOpinion"
                 style="@style/Item.Large"
                 android:background="@drawable/green_oval_selector"
-                android:text="국민\n참여"
-                app:arc_angle="90" />
+                android:text="국민\n참여" />
 
             <Button
+                android:id="@+id/btnViewMypage"
                 style="@style/Item.Large"
                 android:background="@drawable/tumblr_orange_oval"
-                android:text="마이\n페이지"
-                app:arc_angle="180" />
+                android:text="마이\n페이지" />
 
-        </com.ogaclejapan.arclayout.ArcLayout>
+        </LinearLayout>
 
         <ImageView
             android:layout_width="@dimen/layout_child_offset_medium"
@@ -89,7 +83,6 @@
             android:layout_gravity="center"
             android:background="@drawable/emblem"
             android:scaleType="centerCrop" />
-
     </FrameLayout>
 
 </LinearLayout>

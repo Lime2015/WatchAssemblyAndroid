@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/radiogroup_ass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/radio_ass_up"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/radio_padding_left">
+
+        <RadioButton
+            android:id="@id/radio_ass_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/radio_padding_right"
+            android:text="업데이트"
+            android:textSize="@dimen/item_font_size_medium" />
+
+        <RadioButton
+            android:id="@+id/radio_ass_fav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/radio_padding_right"
+            android:text="인기"
+            android:textSize="@dimen/item_font_size_medium" />
+
+        <RadioButton
+            android:id="@+id/radio_ass_cha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="색인"
+            android:textSize="@dimen/item_font_size_medium" />
+    </RadioGroup>
+</LinearLayout>

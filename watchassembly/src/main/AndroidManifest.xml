@@ -20,6 +20,7 @@
         </activity>
 
         <activity
+            android:theme="@style/AppTheme"
             android:name=".MainMenuActivity"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize" />
@@ -45,37 +46,33 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".AssemblymanFragActivity"
+            android:name=".AssemblymanActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
+            android:theme="@style/AppTheme"
             android:name=".AssemblymanListActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".BillFragActivity"
+            android:name=".BillActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".BillListActivity"
+            android:name=".HallOfFameActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".HallOfFameFragActivity"
+            android:name=".MypageActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".MypageFragActivity"
-            android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name=".PublicOpinionListActivity"
+            android:name=".PublicOpinionActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize" />
 

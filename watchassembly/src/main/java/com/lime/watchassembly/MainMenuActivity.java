@@ -1,35 +1,36 @@
 package com.lime.watchassembly;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.kakao.APIErrorResult;
 import com.kakao.LogoutResponseCallback;
 import com.kakao.UserManagement;
 import com.lime.watchassembly.vo.MemberInfo;
-import com.ogaclejapan.arclayout.Arc;
-import com.ogaclejapan.arclayout.ArcLayout;
 
 /**
  * Created by SeongSan on 2015-06-24.
  */
-public class MainMenuActivity extends Activity implements OnClickListener {
+public class MainMenuActivity extends ActionBarActivity {
 
-    private static final String TAG="MainMenuActivity";
-
+    private static final String TAG = "MainMenuActivity";
 
     TextView txtNickname;
-    ArcLayout arcLayout;
     ImageButton btnLogout;
     MemberInfo memberInfo;
+
+    Button btnViewMypage;
+    Button btnViewAssList;
+    Button btnViewBillList;
+    Button btnViewHall;
+    Button btnViewPublic;
 
 
     @Override
@@ -38,39 +39,64 @@ public class MainMenuActivity extends Activity implements OnClickListener {
         setContentView(R.layout.activity_main_menu);
 
         Intent intent = getIntent();
-        memberInfo = (MemberInfo)intent.getSerializableExtra("memberInfo");
+        memberInfo = (MemberInfo) intent.getSerializableExtra("memberInfo");
         txtNickname = (TextView) findViewById(R.id.txtNickname);
         txtNickname.setText(memberInfo.getMemberNickname());
 
-        btnLogout = (ImageButton)findViewById(R.id.btnLogout);
+        btnLogout = (ImageButton) findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(memberInfo.getMemberId().equals("")){
+                if (memberInfo.getMemberId().equals("")) {
                     redirectMainActivity();
-                }else{
+                } else {
                     redirectLogoutActivity();
                 }
             }
         });
 
-        arcLayout = (ArcLayout) findViewById(R.id.arc_layout);
-        arcLayout.setArc(Arc.CENTER);
+        btnViewMypage = (Button) findViewById(R.id.btnViewMypage);
+        btnViewMypage.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewMypage();
+            }
+        });
+        btnViewAssList = (Button) findViewById(R.id.btnViewAssemblymanList);
+        btnViewAssList.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewAssemblymanList();
+            }
+        });
+        btnViewBillList = (Button) findViewById(R.id.btnViewBillList);
+        btnViewBillList.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewBillList();
+            }
+        });
+        btnViewHall = (Button) findViewById(R.id.btnViewHallOfFame);
+        btnViewHall.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewHallOfFame();
+            }
+        });
+        btnViewPublic = (Button) findViewById(R.id.btnViewPublicOpinion);
+        btnViewPublic.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewPublicOpinion();
+            }
+        });
 
-        for (int i = 0, size = arcLayout.getChildCount(); i < size; i++) {
-            arcLayout.getChildAt(i).setOnClickListener(this);
-        }
-
-        if(memberInfo.getMemberId().equals("")){
-            // 둘러보기인 경우 마이페이지 비 활성화
-            disableButton(4);
+        if (memberInfo.getMemberId().equals("")) {
+            btnViewMypage.setEnabled(false);
+            btnViewMypage.setAlpha(0.3f);
         }
     }
 
-    private void disableButton(int i) {
-        arcLayout.getChildAt(i).setEnabled(false);
-        arcLayout.getChildAt(i).setAlpha(0.3f);
-    }
 
     private void redirectLogoutActivity() {
         UserManagement.requestLogout(new LogoutResponseCallback() {
@@ -89,38 +115,10 @@ public class MainMenuActivity extends Activity implements OnClickListener {
         });
     }
 
-    private void redirectMainActivity() {
+    public void redirectMainActivity() {
         Intent intent = new Intent(this, MainLoginTypeActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public void onClick(View view) {
-        if (view instanceof Button) {
-            Button button = (Button)view;
-//            Toast.makeText(getApplicationContext(), "button text:" + button.getText(), Toast.LENGTH_SHORT).show();
-            String nameIdx = button.getText().toString().substring(0,2);
-            Log.d(TAG,"button text:" + nameIdx);
-            
-            switch (nameIdx){
-                case "국회":
-                    viewAssemblymanList();
-                    break;
-                case "의원":
-                    viewBillList();
-                    break;
-                case "명예":
-                    viewHallOfFame();
-                    break;
-                case "국민":
-                    viewPublicOpinion();
-                    break;
-                case "마이":
-                    viewMypage();
-                    break;
-            }
-        }
     }
 
     private void viewMypage() {
