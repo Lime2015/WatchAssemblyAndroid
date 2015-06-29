@@ -22,9 +22,22 @@
         <activity
             android:theme="@style/AppTheme"
             android:name=".MainMenuActivity"
-            android:label="@string/assemblymanlist_name"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".SubmainActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+
+            </activity>
 
         <activity
             android:name=".kakao.KakaoSignupActivity"

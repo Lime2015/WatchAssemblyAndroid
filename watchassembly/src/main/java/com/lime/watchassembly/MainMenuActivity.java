@@ -59,35 +59,35 @@ public class MainMenuActivity extends ActionBarActivity {
         btnViewMypage.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewMypage();
+                viewSubmain(4);
             }
         });
         btnViewAssList = (Button) findViewById(R.id.btnViewAssemblymanList);
         btnViewAssList.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewAssemblymanList();
+                viewSubmain(0);
             }
         });
         btnViewBillList = (Button) findViewById(R.id.btnViewBillList);
         btnViewBillList.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewBillList();
+                viewSubmain(1);
             }
         });
         btnViewHall = (Button) findViewById(R.id.btnViewHallOfFame);
         btnViewHall.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewHallOfFame();
+                viewSubmain(2);
             }
         });
         btnViewPublic = (Button) findViewById(R.id.btnViewPublicOpinion);
         btnViewPublic.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewPublicOpinion();
+                viewSubmain(3);
             }
         });
 
@@ -121,24 +121,10 @@ public class MainMenuActivity extends ActionBarActivity {
         finish();
     }
 
-    private void viewMypage() {
-
-    }
-
-    private void viewPublicOpinion() {
-
-    }
-
-    private void viewHallOfFame() {
-
-    }
-
-    private void viewBillList() {
-
-    }
-
-    private void viewAssemblymanList() {
-        Intent intent = new Intent(this, AssemblymanListActivity.class);
+    private void viewSubmain(int index) {
+        Intent intent = new Intent(this, SubmainActivity.class);
+        intent.putExtra("memberInfo", memberInfo);
+        intent.putExtra("index", index);
         startActivity(intent);
     }
 }
