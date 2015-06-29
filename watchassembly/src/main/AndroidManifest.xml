@@ -22,6 +22,7 @@
         <activity
             android:theme="@style/AppTheme"
             android:name=".MainMenuActivity"
+            android:label="@string/assemblymanlist_name"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize" />
 
