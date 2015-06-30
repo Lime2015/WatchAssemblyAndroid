@@ -1,10 +1,12 @@
 package com.lime.watchassembly;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -26,6 +28,9 @@ import com.lime.watchassembly.vo.MemberInfo;
  * Created by SeongSan on 2015-06-29.
  */
 public class SubmainActivity extends ActionBarActivity {
+
+    private final String TAG = "SubmainActivity";
+
 
     private String[] navItems = {"국회의원", "의안", "명예의전당", "국민참여", "마이페이지"};
 
@@ -62,8 +67,40 @@ public class SubmainActivity extends ActionBarActivity {
         dtToggle = new ActionBarDrawerToggle(this, dlDrawer, R.string.assemblymanlist_name, R.string.assemblymanlist_name);
         dlDrawer.setDrawerListener(dtToggle);
 
+        if (savedInstanceState == null) initFragment(subIndex);      // sub menu 초기화
+    }
 
-        setPosition(subIndex);      // sub menu 초기화
+    private void initFragment(int position) {
+
+        Fragment fr = null;
+
+        switch (position) {
+            case 0:
+                getSupportActionBar().setTitle("국회의원");
+                fr = new AssemblymanListFragment();
+                break;
+            case 1:
+                getSupportActionBar().setTitle("의안");
+                fr = new BillListFragment();
+                break;
+            case 2:
+                getSupportActionBar().setTitle("명예의전당");
+                fr = new HallOfFameFragment();
+                break;
+            case 3:
+                getSupportActionBar().setTitle("국민참여");
+                fr = new PublicOpinionFragment();
+                break;
+            case 4:
+                getSupportActionBar().setTitle("마이페이지");
+                fr = new MypageFragment();
+                break;
+        }
+
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.add(R.id.container, fr);
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -113,33 +150,46 @@ public class SubmainActivity extends ActionBarActivity {
         @Override
         public void onItemClick(AdapterView<?> adapter, View view, int position,
                                 long id) {
-            setPosition(position);
+            if (subIndex != position) setFragment(position);
             dlDrawer.closeDrawer(lvNavList); // 추가됨
         }
     }
 
-    private void setPosition(int position){
+    private void setFragment(int position) {
+
+        Fragment fr = null;
+
         switch (position) {
             case 0:
                 getSupportActionBar().setTitle("국회의원");
-                flContainer.setBackgroundColor(Color.parseColor("#A52A2A"));
+                subIndex = position;
+                fr = new AssemblymanListFragment();
                 break;
             case 1:
                 getSupportActionBar().setTitle("의안");
-                flContainer.setBackgroundColor(Color.parseColor("#5F9EA0"));
+                subIndex = position;
+                fr = new BillListFragment();
                 break;
             case 2:
                 getSupportActionBar().setTitle("명예의전당");
-                flContainer.setBackgroundColor(Color.parseColor("#556B2F"));
+                subIndex = position;
+                fr = new HallOfFameFragment();
                 break;
             case 3:
                 getSupportActionBar().setTitle("국민참여");
-                flContainer.setBackgroundColor(Color.parseColor("#FF8C00"));
+                subIndex = position;
+                fr = new PublicOpinionFragment();
                 break;
             case 4:
                 getSupportActionBar().setTitle("마이페이지");
-                flContainer.setBackgroundColor(Color.parseColor("#DAA520"));
+                subIndex = position;
+                fr = new MypageFragment();
                 break;
         }
+
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.container, fr);
+        fragmentTransaction.commit();
     }
 }
