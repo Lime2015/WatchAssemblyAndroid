@@ -40,39 +40,41 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:theme="@style/AppTheme"
             android:name=".MainMenuActivity"
-            android:launchMode="singleInstance"
-            android:excludeFromRecents="true"
-            android:taskAffinity=""
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:theme="@style/AppTheme"
             android:name=".SubmainActivity"
-            android:launchMode="singleInstance"
-            android:excludeFromRecents="true"
-            android:taskAffinity=""
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
             </intent-filter>
 
-            </activity>
+        </activity>
 
         <activity
-            android:theme="@style/AppTheme"
             android:name=".AssemblymanActivity"
             android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustResize" />
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SubmainActivity" />
+
+        </activity>
 
         <activity
-            android:theme="@style/AppTheme"
             android:name=".BillActivity"
             android:launchMode="singleTask"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize" />
 
         <meta-data

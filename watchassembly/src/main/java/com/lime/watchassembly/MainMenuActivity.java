@@ -2,8 +2,11 @@ package com.lime.watchassembly;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -22,8 +25,6 @@ public class MainMenuActivity extends ActionBarActivity {
 
     private static final String TAG = "MainMenuActivity";
 
-    TextView txtNickname;
-    ImageButton btnLogout;
     MemberInfo memberInfo;
 
     Button btnViewMypage;
@@ -40,20 +41,15 @@ public class MainMenuActivity extends ActionBarActivity {
 
         Intent intent = getIntent();
         memberInfo = (MemberInfo) intent.getSerializableExtra("memberInfo");
-        txtNickname = (TextView) findViewById(R.id.txtNickname);
-        txtNickname.setText(memberInfo.getMemberNickname());
 
-        btnLogout = (ImageButton) findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (memberInfo.getMemberId().equals("")) {
-                    redirectMainActivity();
-                } else {
-                    redirectLogoutActivity();
-                }
-            }
-        });
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        if (memberInfo.getMemberId().equals("")) {
+            getSupportActionBar().setTitle("둘러보기 >>");
+        } else {
+            getSupportActionBar().setTitle(memberInfo.getMemberNickname());
+        }
 
         btnViewMypage = (Button) findViewById(R.id.btnViewMypage);
         btnViewMypage.setOnClickListener(new OnClickListener() {
@@ -105,7 +101,6 @@ public class MainMenuActivity extends ActionBarActivity {
                 Log.d(TAG, "로그아웃");
 
                 memberInfo = null;
-//                txtNickname.setText("");
                 redirectMainActivity();
             }
 

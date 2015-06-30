@@ -2,6 +2,7 @@ package com.lime.watchassembly;
 
 import android.app.Fragment;
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +53,9 @@ public class AssemblymanListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
 //        super.onListItemClick(l, v, position, id);
         AssemblymanListItem item = (AssemblymanListItem) list.get(position);
-        Toast.makeText(getActivity(), item.getAssemblymanName() + " clicked", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), AssemblymanActivity.class);
+        intent.putExtra("name", item.getAssemblymanName());
+        startActivity(intent);
+//        Toast.makeText(getActivity(), item.getAssemblymanName() + " clicked", Toast.LENGTH_SHORT).show();
     }
 }

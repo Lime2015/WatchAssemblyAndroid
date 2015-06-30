@@ -1,84 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/tumblr_grey">
+    <include layout="@layout/toolbar" />
 
-        <TextView
-            android:id="@+id/txtNickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/btnLogout"
-            android:text="nickname"
-            android:textSize="@dimen/item_font_size_large" />
 
-        <ImageButton
-            android:id="@+id/btnLogout"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="Logout"
-            android:longClickable="true"
-            android:padding="0dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/logout" />
-
-    </RelativeLayout>
-
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/light_blue_500">
-
-        <RadioGroup
-            android:id="@+id/radiogroup_ass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkedButton="@+id/radio_ass_up"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/radio_padding_left">
-
-            <RadioButton
-                android:id="@id/radio_ass_up"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="@dimen/radio_padding_right"
-                android:text="업데이트"
-                android:textSize="@dimen/item_font_size_medium" />
-
-            <RadioButton
-                android:id="@+id/radio_ass_fav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="@dimen/radio_padding_right"
-                android:text="인기"
-                android:textSize="@dimen/item_font_size_medium" />
-
-            <RadioButton
-                android:id="@+id/radio_ass_cha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="색인"
-                android:textSize="@dimen/item_font_size_medium" />
-        </RadioGroup>
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:context=".AssemblymanListActivity" />
-
-    </FrameLayout>
 
 </LinearLayout>
