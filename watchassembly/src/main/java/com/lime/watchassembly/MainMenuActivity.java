@@ -160,7 +160,7 @@ public class MainMenuActivity extends ActionBarActivity {
             super.onBackPressed();
         } else {
             backPressedTime = tempTime;
-            Toast.makeText(getApplicationContext(), "'뒤로'버튼을한번더누르시면종료됩니다.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
         }
     }
 }
