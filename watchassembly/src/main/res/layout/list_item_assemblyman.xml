@@ -6,22 +6,25 @@
 
     <ImageView
         android:id="@+id/img_assemblyman"
-        android:scaleType="fitCenter"
         android:layout_width="wrap_content"
-        android:layout_height="30dp" />
+        android:layout_height="30dp"
+        android:scaleType="fitCenter" />
 
     <TextView
         android:id="@+id/name_assemblyman"
+        style="@style/List.Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/party_assemblyman"
+        style="@style/List.Detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/location_assemblyman"
+        style="@style/List.Detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

@@ -26,4 +26,7 @@
   <color name="path_green">#5FB336</color>
   <color name="path_purple">#49098A</color>
 
+  <color name="text_grey">#ff646464</color>
+  <color name="text_black">#403B36</color>
+  <color name="text_kakao">#ff3d2020</color>
 </resources>

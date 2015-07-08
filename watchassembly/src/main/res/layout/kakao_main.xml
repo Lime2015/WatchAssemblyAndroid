@@ -6,10 +6,4 @@
     android:fitsSystemWindows="true"
     android:gravity="center">
 
-    <ImageView
-        android:layout_width="@dimen/layout_child_offset_medium"
-        android:layout_height="@dimen/layout_child_offset_medium"
-        android:background="@drawable/emblem"
-        android:scaleType="centerCrop" />
-
 </RelativeLayout>

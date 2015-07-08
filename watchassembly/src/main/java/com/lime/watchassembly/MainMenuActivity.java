@@ -6,12 +6,15 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kakao.APIErrorResult;
 import com.kakao.LogoutResponseCallback;
@@ -32,7 +35,8 @@ public class MainMenuActivity extends ActionBarActivity {
     Button btnViewBillList;
     Button btnViewHall;
     Button btnViewPublic;
-
+    private final long FINSH_INTERVAL_TIME = 2000;
+    private long backPressedTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,7 @@ public class MainMenuActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
 
         if (memberInfo.getMemberId().equals("")) {
-            getSupportActionBar().setTitle("둘러보기 >>");
+            getSupportActionBar().setTitle("둘러보기");
         } else {
             getSupportActionBar().setTitle(memberInfo.getMemberNickname());
         }
@@ -121,5 +125,42 @@ public class MainMenuActivity extends ActionBarActivity {
         intent.putExtra("memberInfo", memberInfo);
         intent.putExtra("index", index);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                if (memberInfo.getMemberId().equals("")) {
+                    redirectMainActivity();
+                } else {
+                    redirectLogoutActivity();
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        long tempTime = System.currentTimeMillis();
+        long intervalTime = tempTime - backPressedTime;
+
+        if (0 <= intervalTime && FINSH_INTERVAL_TIME >= intervalTime) {
+            super.onBackPressed();
+        } else {
+            backPressedTime = tempTime;
+            Toast.makeText(getApplicationContext(), "'뒤로'버튼을한번더누르시면종료됩니다.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

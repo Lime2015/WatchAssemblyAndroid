@@ -44,7 +44,7 @@ public class KakaoLoginActivity extends SampleLoginActivity {
 
     private void redirectKakaoActivity() {
 
-        Log.d(TAG, "카카오 로그인 성고!!");
+        Log.d(TAG, "카카오 로그인 성공!!");
         Intent intent = new Intent(this, KakaoActivity.class);
         startActivity(intent);
         finish();

@@ -4,11 +4,52 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/list_radio" />
+    <!--<include layout="@layout/list_radio" />-->
+
+    <!--<TextView-->
+    <!--android:text="국회의원 리스트"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+
+    <RadioGroup
+        android:id="@+id/radiogroup_ass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/radio_ass_up"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/radio_padding_left">
+
+        <RadioButton
+            android:id="@id/radio_ass_up"
+            style="@style/Radio.RightPadding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="업데이트" />
+
+        <RadioButton
+            android:id="@+id/radio_ass_fav"
+            style="@style/Radio.RightPadding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인기" />
+
+        <RadioButton
+            android:id="@+id/radio_ass_cha"
+            style="@style/Radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="색인" />
+    </RadioGroup>
 
     <ListView
-        android:id="@+id/list_assemblyman"
+        android:id="@id/android:list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+
+    <!--<ListView-->
+    <!--android:id="@+id/listview_ass"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content" />-->
 
 </LinearLayout>

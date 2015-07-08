@@ -22,12 +22,25 @@ import com.lime.watchassembly.R;
 
 import com.lime.watchassembly.WASignupActivity;
 import com.lime.watchassembly.db.WatchAssemblyDatabase;
+import com.lime.watchassembly.util.GZip;
 import com.lime.watchassembly.util.WebServerController;
 import com.lime.watchassembly.vo.MemberInfo;
 import com.lime.watchassembly.vo.ServerResult;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.Inflater;
 
 /**
  * Created by Administrator on 2015-06-09.
@@ -36,7 +49,8 @@ public class KakaoActivity extends Activity {
 
 
     private final String TAG = "KakaoActivity";
-    private final String SERVER_URL = "http://52.69.102.82:8080";
+        private final String SERVER_URL = "http://52.69.102.82:8080";
+//    private final String SERVER_URL = "http://192.168.0.9:9080";
     private final String SERVER_CHECK_MEMBER = "/WatchAssemblyWebServer/checkMember.do";
 //    private final String SERVER_SAVE_MEMBER = "/WatchAssemblyWebServer/saveMember.do";
 
@@ -154,9 +168,14 @@ public class KakaoActivity extends Activity {
 
 //        prgDialog.setMessage("check member...");
 //        prgDialog.show();
+
+//        client.addHeader("Accept-Encoding", "gzip");
         client.post(SERVER_URL + SERVER_CHECK_MEMBER, params, new AsyncHttpResponseHandler() {
+
             @Override
-            public void onSuccess(String content) {
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+//                super.onSuccess(statusCode, headers, responseBody);
+                String content = new String(responseBody);
 //                prgDialog.hide();
 
                 Log.d(TAG, "AsyncHttpClient response result:" + content);
@@ -172,6 +191,24 @@ public class KakaoActivity extends Activity {
                     showMyPage();
                 }
             }
+
+            //            @Override
+//            public void onSuccess(String content) {
+////                prgDialog.hide();
+//
+//                Log.d(TAG, "AsyncHttpClient response result:" + content);
+//
+//                Gson gson = new GsonBuilder().create();
+//                ServerResult serverResult = gson.fromJson(content, ServerResult.class);
+//
+//                if (serverResult.getResult() == 0) {
+//                    // 신규회원
+//                    redirectWASignupActivity();
+//                } else {
+//                    // 기존회원
+//                    showMyPage();
+//                }
+//            }
 
             @Override
             public void onFailure(int statusCode, Throwable error, String content) {

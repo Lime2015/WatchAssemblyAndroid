@@ -24,7 +24,7 @@ public class MainLoginTypeActivity extends Activity {
     private final String TAG="MainLoginTypeActivity";
 
     private ImageButton btnKakaoLogin;
-    private ImageButton btnLoginFree;
+    private Button btnLoginFree;
 
 
     @Override
@@ -39,7 +39,9 @@ public class MainLoginTypeActivity extends Activity {
                 kakaoLogin();
             }
         });
-        btnLoginFree = (ImageButton) findViewById(R.id.btnLoginFree);
+
+        btnLoginFree = (Button) findViewById(R.id.btnLoginFree);
+        btnLoginFree.setWidth(btnKakaoLogin.getWidth());
         btnLoginFree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +62,7 @@ public class MainLoginTypeActivity extends Activity {
     private void kakaoLogin() {
         Intent intent = new Intent(this, KakaoActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void loginFree() {
@@ -67,6 +70,7 @@ public class MainLoginTypeActivity extends Activity {
         Intent intent = new Intent(this, MainMenuActivity.class);
         intent.putExtra("memberInfo", new MemberInfo());
         startActivity(intent);
+        finish();
     }
 
 }

@@ -109,6 +109,7 @@ public class SubmainActivity extends ActionBarActivity {
         menuInflater.inflate(R.menu.menu_submain, menu);
 
         MenuItem searchItem = menu.findItem(R.id.action_search);
+//        MenuItem logoutItem = menu.findItem(R.id.action_logout);
 
         SearchManager searchManager = (SearchManager) SubmainActivity.this.getSystemService(Context.SEARCH_SERVICE);
 

@@ -17,6 +17,7 @@
  */
 package com.lime.template.loginbase;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -62,11 +63,14 @@ public class SampleLoginActivity extends Activity {
         session.removeCallback(mySessionCallback);
     }
 
+    @Override
     protected void onResume() {
         super.onResume();
 
         if (session.isClosed()){
             loginButton.setVisibility(View.VISIBLE);
+//            loginButton.setVisibility(View.GONE);
+//            loginButton.performClick();
         } else {
             loginButton.setVisibility(View.GONE);
             session.implicitOpen();
@@ -102,6 +106,7 @@ public class SampleLoginActivity extends Activity {
             //뺑글이 종료
             // 프로그레스바를 보이고 있었다면 중지하고 세션 오픈을 못했으니 다시 로그인 버튼 노출.
             loginButton.setVisibility(View.VISIBLE);
+//            onBackPressed();
         }
 
         @Override

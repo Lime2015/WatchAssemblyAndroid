@@ -3,33 +3,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical">
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="@dimen/layout_child_offset_medium"
+        android:layout_height="@dimen/layout_child_offset_medium"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/emblem" />
 
-        <ImageButton
-            android:id="@+id/btnKakaoLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:adjustViewBounds="true"
-            android:padding="0dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/kakao_login" />
+    <ImageButton
+        android:id="@+id/btnKakaoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/kakao_login" />
 
-        <ImageButton
-            android:layout_marginLeft="10dp"
-            android:id="@+id/btnLoginFree"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:adjustViewBounds="true"
-            android:padding="0dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/view" />
+    <Button
+        android:id="@+id/btnLoginFree"
+        android:layout_width="160dp"
+        android:layout_height="32dp"
+        android:padding="0dp"
+        android:background="@drawable/mybutton"
+        android:textSize="@dimen/item_font_size_small"
+        android:textStyle="bold"
+        android:text="체 험 하 기" />
 
-    </LinearLayout>
+    <!--<ImageButton-->
+    <!--android:id="@+id/btnLoginFree"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="35dp"-->
+    <!--android:adjustViewBounds="true"-->
+    <!--android:padding="0dp"-->
+    <!--android:scaleType="fitCenter"-->
+    <!--android:src="@drawable/view" />-->
 
 </LinearLayout>
 
