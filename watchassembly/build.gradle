@@ -59,4 +59,7 @@ dependencies {
 
 //    compile project(':library-arc')
 //    compile 'com.android.support:appcompat-v7:22.0.0'
+
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+//    compile 'com.jpardogo.materialtabstrip:library:1.1.0'
 }

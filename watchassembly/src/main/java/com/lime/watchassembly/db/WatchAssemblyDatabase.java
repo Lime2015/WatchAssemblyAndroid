@@ -133,8 +133,11 @@ public class WatchAssemblyDatabase {
         @Override
         public void onCreate(SQLiteDatabase db) {
             String query;
-            query = "CREATE TABLE member_info ( member_id VARCHAR(45) PRIMARY KEY, logon_type_id INTEGER PRIMARY KEY, member_nickname VARCHAR(45), address VARCHAR(100), birth_date DATE, gender CHAR(1))";
-
+            query = "CREATE TABLE member_info ( member_id VARCHAR(45) PRIMARY KEY, logon_type_id INTEGER PRIMARY KEY, " +
+                    "member_nickname VARCHAR(45), address VARCHAR(100), birth_date DATE, gender CHAR(1));";
+            query += "CREATE TABLE assemblyman ( assemblyman_id varchar(30) PRIMARY KEY, assemblyman_name varchar(30) Not null, " +
+                    "image_url varchar(60), org_image_url varchar(60), mod_dttm varchar(60), party_id int, " +
+                    "party_name varchar(60), local_constituency varchar(60), update_tag int);";
             database.execSQL(query);
             Log.d(TAG, "onCreated database [" + DATABASE_NAME + "].");
         }

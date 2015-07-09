@@ -92,8 +92,8 @@
     <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="volley-1.0.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" exported="" name="slf4j-api-1.7.5" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.0" level="project" />
+    <orderEntry type="library" exported="" name="slf4j-api-1.7.5" level="project" />
     <orderEntry type="library" exported="" name="support-v4-21.0.0" level="project" />
     <orderEntry type="library" exported="" name="async-http-client-1.8.3" level="project" />
     <orderEntry type="library" exported="" name="usermgmt-1.0.52" level="project" />

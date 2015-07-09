@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -15,6 +16,7 @@ import com.kakao.UserProfile;
 import com.kakao.exception.KakaoException;
 import com.kakao.widget.LoginButton;
 import com.lime.template.loginbase.SampleSignupActivity;
+import com.lime.watchassembly.db.WatchAssemblyDatabase;
 import com.lime.watchassembly.kakao.KakaoActivity;
 import com.lime.watchassembly.vo.MemberInfo;
 
@@ -26,6 +28,7 @@ public class MainLoginTypeActivity extends Activity {
     private ImageButton btnKakaoLogin;
     private Button btnLoginFree;
 
+    private WatchAssemblyDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class MainLoginTypeActivity extends Activity {
             }
         });
 
+        initializeDatabase();
         checkLogon();
     }
 
@@ -73,4 +77,20 @@ public class MainLoginTypeActivity extends Activity {
         finish();
     }
 
+    private void initializeDatabase() {
+        if (database != null) {
+            database.close();
+            database = null;
+        }
+
+        database = WatchAssemblyDatabase.getInstance(this);
+        boolean isOpen = database.open();
+        if (isOpen) {
+            Log.d(TAG, "WatchAssembly database is open.");
+        } else {
+            Log.d(TAG, "WatchAssembly database is not open.");
+        }
+
+        Log.d(TAG, "initializeDatabase success!!");
+    }
 }

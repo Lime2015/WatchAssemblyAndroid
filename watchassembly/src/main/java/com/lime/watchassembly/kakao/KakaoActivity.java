@@ -64,7 +64,6 @@ public class KakaoActivity extends Activity {
 //    private FlatButton btnLogout;
 //    private FlatTextView txtNickname;
 
-    private WatchAssemblyDatabase database;
 //    private WebServerController controller;
 
     //Progress Dialog Object
@@ -76,7 +75,6 @@ public class KakaoActivity extends Activity {
         initializeView();
 //        checkLoginInfo();
         redirectLoginActivity();
-        initializeDatabase();
 
     }
 
@@ -111,25 +109,6 @@ public class KakaoActivity extends Activity {
 
 
     }
-
-
-    private void initializeDatabase() {
-        if (database != null) {
-            database.close();
-            database = null;
-        }
-
-        database = WatchAssemblyDatabase.getInstance(this);
-        boolean isOpen = database.open();
-        if (isOpen) {
-            Log.d(TAG, "WatchAssembly database is open.");
-        } else {
-            Log.d(TAG, "WatchAssembly database is not open.");
-        }
-
-        Log.d(TAG, "initializeDatabase success!!");
-    }
-
 
     @Override
     protected void onResume() {
