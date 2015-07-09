@@ -92,8 +92,9 @@ public class MainMenuActivity extends ActionBarActivity {
         });
 
         if (memberInfo.getMemberId().equals("")) {
-            btnViewMypage.setEnabled(false);
-            btnViewMypage.setAlpha(0.3f);
+            btnViewMypage.setVisibility(View.GONE);
+//            btnViewMypage.setEnabled(false);
+//            btnViewMypage.setAlpha(0.3f);
         }
     }
 

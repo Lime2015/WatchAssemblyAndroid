@@ -1,11 +1,26 @@
 package com.lime.watchassembly;
 
-import android.app.Activity;
+import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-/**
- * Created by SeongSan on 2015-06-24.
- */
+
 public class MypageFragment extends Fragment {
-}
 
+    private final String TAG = "MypageFragment";
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_mypage, container, false);
+
+        Log.d(TAG, "onCreateView start");
+        return view;
+    }
+
+}

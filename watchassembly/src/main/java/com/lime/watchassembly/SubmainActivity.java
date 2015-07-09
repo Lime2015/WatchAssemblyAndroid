@@ -53,6 +53,10 @@ public class SubmainActivity extends ActionBarActivity {
         memberInfo = (MemberInfo) intent.getSerializableExtra("memberInfo");
         subIndex = (Integer) intent.getSerializableExtra("index");
 
+        if (memberInfo.getMemberId().equals("")) {
+            navItems = new String[]{"국회의원", "의안", "명예의전당", "국민참여"};
+        }
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
