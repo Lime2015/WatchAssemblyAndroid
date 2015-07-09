@@ -1,6 +1,7 @@
-package com.lime.watchassembly;
+﻿package com.lime.watchassembly;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -15,11 +16,11 @@ import com.kakao.SessionCallback;
 import com.kakao.UserProfile;
 import com.kakao.exception.KakaoException;
 import com.kakao.widget.LoginButton;
+import com.lime.template.loginbase.SampleLoginActivity;
 import com.lime.template.loginbase.SampleSignupActivity;
 import com.lime.watchassembly.db.WatchAssemblyDatabase;
 import com.lime.watchassembly.kakao.KakaoActivity;
 import com.lime.watchassembly.vo.MemberInfo;
-
 
 public class MainLoginTypeActivity extends Activity {
 
@@ -44,7 +45,6 @@ public class MainLoginTypeActivity extends Activity {
         });
 
         btnLoginFree = (Button) findViewById(R.id.btnLoginFree);
-        btnLoginFree.setWidth(btnKakaoLogin.getWidth());
         btnLoginFree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +76,7 @@ public class MainLoginTypeActivity extends Activity {
         startActivity(intent);
         finish();
     }
+
 
     private void initializeDatabase() {
         if (database != null) {
