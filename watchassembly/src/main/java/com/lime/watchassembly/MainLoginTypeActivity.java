@@ -1,23 +1,15 @@
-﻿package com.lime.watchassembly;
+﻿
+package com.lime.watchassembly;
+
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-
-import com.kakao.Session;
-import com.kakao.SessionCallback;
 import com.kakao.UserProfile;
-import com.kakao.exception.KakaoException;
-import com.kakao.widget.LoginButton;
-import com.lime.template.loginbase.SampleLoginActivity;
-import com.lime.template.loginbase.SampleSignupActivity;
 import com.lime.watchassembly.db.WatchAssemblyDatabase;
 import com.lime.watchassembly.kakao.KakaoActivity;
 import com.lime.watchassembly.vo.MemberInfo;
